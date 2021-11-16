@@ -17,13 +17,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	
 	//CREATE THE OBJECT (STEP 1)
 	Background 	bg 	= new Background(0, 0);
-
-
+	Peppa pep = new Peppa(400,300);
+	Obstacle1 covid1 = new Obstacle1 (10,10);
+	Obstacle2 asteroid1 = new Obstacle2 (200,10);
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
-
-		
+		pep.paint(g);
+		covid1.paint(g);
+		asteroid1.paint(g);
 	}
 	
 	public static void main(String[] arg) {
@@ -31,8 +33,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	}
 	
 	public Frame() {
-		JFrame f = new JFrame("Crossy Street");
-		f.setSize(new Dimension(600, 400));
+		JFrame f = new JFrame("Space Peppa");
+		f.setSize(new Dimension(800, 600));
 		f.setBackground(Color.blue);
 		f.add(this);
 		f.setResizable(false);
@@ -82,6 +84,30 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 			System.out.println(arg0.getKeyCode());
+			if (arg0.getKeyCode()==32) {
+				pep.flap();
+			}
+			
+			if (arg0.getKeyCode()==39) {
+				pep.moveRight();
+			}
+			
+			if (arg0.getKeyCode()==37) {
+				pep.moveLeft();
+			}
+			if (arg0.getKeyCode()==38) {
+				pep.moveUp();
+			}
+			
+			if (arg0.getKeyCode()==40) {
+				pep.moveDown();
+			}
+			
+			
+			
+			
+			
+			
 
 	}
 
