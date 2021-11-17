@@ -9,6 +9,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.Random;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -20,12 +22,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Peppa pep = new Peppa(400,300);
 	Obstacle1 covid1 = new Obstacle1 (10,10);
 	Obstacle2 asteroid1 = new Obstacle2 (200,10);
+	Obstacle3 iceasteroid = new Obstacle3 (400,10);
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
 		pep.paint(g);
 		covid1.paint(g);
 		asteroid1.paint(g);
+		iceasteroid.paint(g);
+		
 	}
 	
 	public static void main(String[] arg) {

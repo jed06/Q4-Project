@@ -14,7 +14,7 @@ public class Peppa{
 	private Image img; 	
 	private AffineTransform tx;
 	private int vy = 0;
-	private int ay = 6;
+	private int xy = 6;
 	
 	public Peppa(int x, int y) {
 		this.x = x;
@@ -56,16 +56,19 @@ public class Peppa{
 			vy = 0;
 		}
 		
-		if (y > 643) {
-			y = 643;
+		if (y > 400) {
+			y = 400;
 			vy = 0;
 		}
 		
 		if (x < 0) {
 			x = 0;
-			vy = 0;
+			xy = 0;
 		}
-		
+		if (x > 690) {
+			x = 690;
+			xy = 0;
+		}
 		tx.setToTranslation(x, y);
 		tx.scale(0.25, 0.25);
 	}

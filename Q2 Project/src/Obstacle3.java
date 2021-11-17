@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class Obstacle1{
+public class Obstacle3{
 	
 	//add location attributes
 	public int x; //position of the bird
@@ -15,13 +15,12 @@ public class Obstacle1{
 	private Image img; 	
 	private AffineTransform tx;
 	private double vy = 0;
-	private double ay = 4.5;
+	private double ay = 5.5;
 	int w = 100, h = 300;
-	double rnd = Math.random()*801;
-	public Obstacle1(rnd, rnd) {
-		this.x = rnd;
+	public Obstacle3(int x, int y) {
+		this.x = x;
 		this.y = y;
-		img = getImage("/imgs/covid.png"); //load the image for Tree
+		img = getImage("/imgs/iceobstacle.png"); //load the image for Tree
 		
 
 		tx = AffineTransform.getTranslateInstance(x, y );
@@ -78,7 +77,7 @@ public class Obstacle1{
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = Obstacle1.class.getResource(path);
+			URL imageURL = Obstacle3.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
