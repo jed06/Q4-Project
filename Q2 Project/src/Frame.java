@@ -10,7 +10,6 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Random;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -18,11 +17,13 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	//CREATE THE OBJECT (STEP 1)
+	Random rn = new Random();
 	Background 	bg 	= new Background(0, 0);
-	Peppa pep = new Peppa(400,300);
-	Obstacle1 covid1 = new Obstacle1 (10,10);
-	Obstacle2 asteroid1 = new Obstacle2 (200,10);
-	Obstacle3 iceasteroid = new Obstacle3 (400,10);
+	Peppa pep = new Peppa(400,600);
+	Obstacle1 covid1;
+	Obstacle2 asteroid1;
+	Obstacle3 iceasteroid;
+	Star star1;
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
@@ -30,6 +31,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		covid1.paint(g);
 		asteroid1.paint(g);
 		iceasteroid.paint(g);
+		star1.paint(g);
 		
 	}
 	
@@ -42,6 +44,23 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		f.setSize(new Dimension(800, 600));
 		f.setBackground(Color.blue);
 		f.add(this);
+		
+		//create the objects
+		int randomx = rn.nextInt(700 - 10 + 1) + 10;
+		covid1 = new Obstacle1 (randomx,-100);
+		
+		//generate new random x
+		randomx = rn.nextInt(700 - 10 + 1) + 10;
+		asteroid1 = new Obstacle2 (randomx,-500);
+		
+		randomx = rn.nextInt(700 - 10 + 1) + 10;
+		iceasteroid = new Obstacle3 (randomx,-900);
+		
+		randomx = rn.nextInt(700 - 10 + 1) + 10;
+		star1 = new Star (randomx, -1000);
+		
+		
+		
 		f.setResizable(false);
 		f.setLayout(new GridLayout(1,2));
 		f.addMouseListener(this);
