@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
+import java.util.Random;
 
 public class Obstacle2{
 	
@@ -17,6 +18,8 @@ public class Obstacle2{
 	private double vy = 0;
 	private double ay = 6;
 	int w = 100, h = 300;
+	Random rn = new Random();
+	
 	public Obstacle2(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -50,24 +53,16 @@ public class Obstacle2{
 		y += vy; // velocity in y affects y location
 		vy = ay;
 		
-		
-		
 		// prevent bird from leaving top of frame
 		
 		if (y > 850) {
-			y = -310;
-			
-		}
-		
-		
+			y = -500;
+			x = rn.nextInt(700 - 10 + 1) + 10;
+		}			
 		
 		tx.setToTranslation(x, y);
 		tx.scale(0.4, 0.4);
 	}
-	
-
-	
-	
 	
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);

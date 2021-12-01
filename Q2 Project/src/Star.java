@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
+import java.util.Random;
 
 public class Star{
 	
@@ -17,6 +18,7 @@ public class Star{
 	private double vy = 0;
 	private double ay = 6.5;
 	int w = 100, h = 300;
+	Random rn = new Random();
 	public Star(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -56,6 +58,7 @@ public class Star{
 		
 		if (y > 850) {
 			y = -315;
+			x = rn.nextInt(700 - 10 + 1) + 10;
 			
 		}
 		
