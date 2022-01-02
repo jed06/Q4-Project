@@ -17,7 +17,7 @@ public class Obstacle1{
 	private AffineTransform tx;
 	private double vy = 0;
 	private double ay = 4.5;
-	int w = 100, h = 300;
+	int w = 95, h = 90;
 	Random rn = new Random();
 	
 	public Obstacle1(int x, int y) {

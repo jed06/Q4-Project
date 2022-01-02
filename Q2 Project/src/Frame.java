@@ -26,7 +26,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	private Image img;
 	Random rn = new Random();
 	Background 	bg 	= new Background(0, 0);
-	Peppa pep = new Peppa(400, 600);
+	Peppa pep = new Peppa(400, 390);
 	Obstacle1 covid1;
 	Obstacle2 asteroid1;
 	Obstacle3 iceasteroid;
@@ -51,23 +51,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
 			
 			g.setColor(Color.PINK);
-			g.drawString("you lost lol" , 100, 100);
-			g.drawString("Press enter to restart" , 100, 300);
-			pep.changePicture("/imgs/sadpeppa.png");
-			pep.paint(g);
+			g.drawString("you lost" , 100, 100);
+			g.drawString("Press enter to restart" , 100, 200);
+			g.drawString("Your Score: " + Score, 100, 300);
 			return;
 		}
 		
 		if(!isGameStarted){
 			gameLost = false;
 			g.setFont(new Font("Comic Sans", Font.PLAIN, 45));
-			
 			g.setColor(Color.MAGENTA);
 			g.drawString("Dont touch the asteroids" , 110, 100);
 			g.drawString("Collect the Stars" , 190, 200);
 			g.drawString("Press Enter to start the game" , 70, 300);
-			g.setFont(new Font("Comic Sans", Font.PLAIN, 35));
-			g.drawString("use the arrow keys to move up, down, left, right" , 25, 400);
+			g.drawString("use the arrow keys to move" , 100, 400);
+			
 
 			
 			return;
@@ -84,41 +82,43 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		//System.out.println("star1.x " + star1.x + ", star1.y " + star1.y);
 		//System.out.println("pep.x " + pep.x + ", pep.y " + pep.y);
 		
+	
 		
 		if((star1.x >= pep.x && star1.x <= pep.x  + 110) || star1.x + star1.w >= pep.x && star1.x + star1.w <= pep.x  + 110){
 			if(star1.y >= pep.y && star1.y < pep.y + 200){
 				
 				Score += 1;
-				
-				
-				//isStarTouching = true;	
+					
 				star1.y = -315;
 				star1.x = rn.nextInt(700 - 10 + 1) + 10;
 					
 			}
 		}
 		
-		if((covid1.x >= pep.x && covid1.x <= pep.x  + 110) || covid1.x + covid1.w >= pep.x && covid1.x + covid1.w <= pep.x  + 110){
-			if(covid1.y >= pep.y && covid1.y < pep.y + 200){
+		if((covid1.x + 15 >= pep.x && covid1.x - 15 <= pep.x  + 110) ){//|| covid1.x + covid1.w >= pep.x && covid1.x + covid1.w <= pep.x  + 110){
+			if(covid1.y + 15 >= pep.y && covid1.y - 15 < pep.y + 200){
 				covid1.y = -100;
-				Score = 0;
+				covid1.x = rn.nextInt(700 - 10 + 1) + 10;
+				
 				gameLost = true;	
 			}
 		}
 		
-		if((asteroid1.x >= pep.x && asteroid1.x <= pep.x  + 110) || asteroid1.x + asteroid1.w >= pep.x && asteroid1.x + asteroid1.w <= pep.x  + 110){
+		if((asteroid1.x >= pep.x && asteroid1.x <= pep.x  + 110)) {// || asteroid1.x + asteroid1.w >= pep.x && asteroid1.x + asteroid1.w <= pep.x  + 110){
 			if(asteroid1.y >= pep.y && asteroid1.y < pep.y + 200){
 				asteroid1.y = -500;
-				Score = 0;
+				asteroid1.x = rn.nextInt(700 - 10 + 1) + 10;
+				
 				gameLost = true;
 				
 			}
 		}
 		
-		if((iceasteroid.x >= pep.x && iceasteroid.x <= pep.x  + 110) || iceasteroid.x + iceasteroid.w >= pep.x && covid1.x + covid1.w <= pep.x  + 110){
+		if((iceasteroid.x >= pep.x && iceasteroid.x <= pep.x  + 110)) {// || iceasteroid.x + iceasteroid.w >= pep.x && covid1.x + covid1.w <= pep.x  + 110){
 			if(iceasteroid.y >= pep.y && iceasteroid.y < pep.y + 200){
 				iceasteroid.y = -900;
-				Score = 0;
+				iceasteroid.x = rn.nextInt(700 - 10 + 1) + 10;
+				
 				gameLost = true;	
 			}
 		}
@@ -212,12 +212,14 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-			System.out.println(arg0.getKeyCode());
+			//System.out.println(arg0.getKeyCode());
 		
 
 			if (arg0.getKeyCode()==10) {
+				Score = 0;
 				isGameStarted = true;
 				gameLost = false;
+				
 			}
 			
 			if (arg0.getKeyCode()==32) {

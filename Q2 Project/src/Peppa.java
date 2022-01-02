@@ -55,8 +55,8 @@ public class Peppa{
 			vy = 0;
 		}
 		
-		if (y > 400) {
-			y = 400;
+		if (y > 390) {
+			y = 390;
 			vy = 0;
 		}
 		
