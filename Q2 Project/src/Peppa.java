@@ -24,8 +24,7 @@ public class Peppa{
 		tx = AffineTransform.getTranslateInstance(x, y );
 		init(x, y); 				//initialize the location of the image
 									//use your variables
-		
-	
+			
 	}
 	
 	public void changePicture(String newFileName) {
@@ -39,10 +38,10 @@ public class Peppa{
 
 		//call update to update the picture location
 		update();
-		g2.drawImage(img, tx, null);
-		
+		g2.drawImage(img, tx, null);		
 
 	}
+	
 	/* update the picture variable location */
 	private void update() {
 		// update y location based on velocity in y
@@ -74,12 +73,9 @@ public class Peppa{
 	}
 	
 	
-	public void flap () {
-		
-		// what's the intent if we command the peppa to flap
-		
-		y -= 40;
-		
+	public void flap () {		
+		// what's the intent if we command the peppa to flap		
+		y -= 40;		
 		
 	}
 	

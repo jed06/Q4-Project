@@ -17,7 +17,7 @@ public class Star{
 	private AffineTransform tx;
 	private double vy = 0;
 	private double ay = 6.5;
-	int w = 100, h = 300;
+	int w = 100, h = 100;
 	Random rn = new Random();
 	public Star(int x, int y) {
 		this.x = x;
@@ -51,25 +51,17 @@ public class Star{
 		
 		y += vy; // velocity in y affects y location
 		vy = ay;
-		
-		
-		
+				
 		// prevent bird from leaving top of frame
 		
 		if (y > 850) {
 			y = -315;
 			x = rn.nextInt(700 - 10 + 1) + 10;
-			
 		}
-		
-		
 		
 		tx.setToTranslation(x, y);
 		tx.scale(0.4, 0.4);
 	}
-	
-
-	
 	
 	
 	private void init(double a, double b) {
@@ -87,5 +79,4 @@ public class Star{
 		}
 		return tempImage;
 	}
-
 }
