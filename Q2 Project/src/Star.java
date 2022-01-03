@@ -54,7 +54,7 @@ public class Star{
 				
 		// prevent bird from leaving top of frame
 		
-		if (y > 850) {
+		if (y > 700) {
 			y = -315;
 			x = rn.nextInt(700 - 10 + 1) + 10;
 		}

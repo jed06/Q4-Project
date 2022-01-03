@@ -22,7 +22,7 @@ import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
-	//CREATE THE OBJECT (STEP 1)
+	// create the objects
 	private Image img;
 	Random rn = new Random();
 	Background 	bg 	= new Background(0, 0);
@@ -36,13 +36,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean isGameStarted = false;
 	boolean gameLost = false;
 	
-	// THINGS STILL TO FIX:
-	// Pressing enter during game running resets score
-	// change to sad peppa face but dosnt change back when game restart
-	// add loost point if the star passes the bottom of frame
-	// add more stuff like more asteroids!!
-	// figure out repository thing with nanah
-	
+	// paint the objects
 	public void paint(Graphics g) {
 		super.paintComponent(g);
 		bg.paint(g);
@@ -51,21 +45,25 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 
 		g.drawString(""+Score , 650, 100);
 		
-		if(gameLost)
-		{
+		// if the player looses, display the message
+		if(gameLost){
 			g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
 			
 			g.setColor(Color.PINK);
-			g.drawString("you lost" , 100, 100);
+			g.drawString("you lost lol" , 100, 100);
 			g.drawString("Press enter to restart" , 100, 200);
 			g.drawString("Your Score: " + Score, 100, 300);
 			return;
 		}
 		
+		// if the game is not started, display the start instructions
 		if(!isGameStarted){
 			gameLost = false;
+			// setting font type
 			g.setFont(new Font("Comic Sans", Font.PLAIN, 45));
+			// set font color
 			g.setColor(Color.MAGENTA);
+			// string to display
 			g.drawString("Dont touch the asteroids" , 110, 100);
 			g.drawString("Collect the Stars" , 190, 200);
 			g.drawString("Press Enter to start the game" , 70, 300);
@@ -76,19 +74,15 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			return;
 		}
 		 
-		
+		// paint the objects
 		pep.paint(g);
 		covid1.paint(g);
 		asteroid1.paint(g);
 		iceasteroid.paint(g);
 		star1.paint(g);
 		
-		//Collision
-		//System.out.println("star1.x " + star1.x + ", star1.y " + star1.y);
-		//System.out.println("pep.x " + pep.x + ", pep.y " + pep.y);
 		
-	
-		
+		//Collision between star and peppa
 		if((star1.x >= pep.x && star1.x <= pep.x  + 110) || star1.x + star1.w >= pep.x && star1.x + star1.w <= pep.x  + 110){
 			if(star1.y >= pep.y && star1.y < pep.y + 200){
 				
@@ -100,41 +94,45 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			}
 		}
 		
-		if((covid1.x + 15 >= pep.x && covid1.x - 15 <= pep.x  + 110) ){//|| covid1.x + covid1.w >= pep.x && covid1.x + covid1.w <= pep.x  + 110){
-			if(covid1.y + 15 >= pep.y && covid1.y - 15 < pep.y + 200){
-				covid1.y = -100;
-				covid1.x = rn.nextInt(700 - 10 + 1) + 10;
+		// collision between covid asteroid and peppa
+		if((covid1.x + 15 >= pep.x && covid1.x - 15 <= pep.x  + 110) ){ //checking if covid x intersects with peppa x
+			if(covid1.y + 15 >= pep.y && covid1.y - 15 < pep.y + 200){  //checking if covid y intersects with peppa y
+				covid1.y = -100;										//reset y location if collision occurs
+				covid1.x = rn.nextInt(700 - 10 + 1) + 10;				//reset x location to random
 				
-				gameLost = true;	
+				gameLost = true;										//if collision occurs, the player lost game
 			}
 		}
 		
-		if((asteroid1.x >= pep.x && asteroid1.x <= pep.x  + 110)) {// || asteroid1.x + asteroid1.w >= pep.x && asteroid1.x + asteroid1.w <= pep.x  + 110){
-			if(asteroid1.y >= pep.y && asteroid1.y < pep.y + 200){
-				asteroid1.y = -500;
-				asteroid1.x = rn.nextInt(700 - 10 + 1) + 10;
+		// collision between asteroid and peppa
+		if((asteroid1.x >= pep.x && asteroid1.x <= pep.x  + 110)) { // checking if the 2 objects x locations intersect
+			if(asteroid1.y >= pep.y && asteroid1.y < pep.y + 200){  // checking if the 2 objects y locations intersect
+				asteroid1.y = -500;									//reset y location if collision occurs
+				asteroid1.x = rn.nextInt(700 - 10 + 1) + 10;		//reset x location to random
 				
-				gameLost = true;
+				gameLost = true;									//if collision occurs, the player lost game
 				
 			}
 		}
 		
-		if((iceasteroid.x >= pep.x && iceasteroid.x <= pep.x  + 110)) {// || iceasteroid.x + iceasteroid.w >= pep.x && covid1.x + covid1.w <= pep.x  + 110){
-			if(iceasteroid.y >= pep.y && iceasteroid.y < pep.y + 200){
+		// collision between ice asteroid and peppa
+		if((iceasteroid.x >= pep.x && iceasteroid.x <= pep.x  + 110)) { // checking if the 2 objects x locations intersect
+			if(iceasteroid.y >= pep.y && iceasteroid.y < pep.y + 200){  // checking if the 2 objects x locations intersect
 				iceasteroid.y = -900;
-				iceasteroid.x = rn.nextInt(700 - 10 + 1) + 10;
+				iceasteroid.x = rn.nextInt(700 - 10 + 1) + 10;			//reseting x and y
 				
-				gameLost = true;	
+				gameLost = true;										// player lost game
 			}
 		}
 		
 		
-		g.setColor(Color.CYAN);
-		g.drawString(""+ Score , 650, 100);
+		g.setColor(Color.CYAN);// setting color to display score
+		g.drawString(""+ Score , 650, 100);// displaying score string
 		
 		
 	}
 	
+	// creating a frame
 	public static void main(String[] arg) {
 		Frame f = new Frame();
 	}
@@ -142,7 +140,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	JFrame f = new JFrame("Space Peppa");
 	
 	public Frame() {
-		
+		// consturctor for frame
 		f.setSize(new Dimension(800, 600));
 		f.setBackground(Color.blue);
 		f.add(this);
@@ -151,7 +149,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		int randomx = rn.nextInt(700 - 10 + 1) + 10;
 		covid1 = new Obstacle1 (randomx,-100);
 		
-		//generate new random x
+		//generate new random x locations for obstacles
 		randomx = rn.nextInt(700 - 10 + 1) + 10;
 		asteroid1 = new Obstacle2 (randomx,-500);
 		
@@ -161,6 +159,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		randomx = rn.nextInt(700 - 10 + 1) + 10;
 		star1 = new Star (randomx, -1000);				
 		
+		//
 		f.setResizable(false);
 		f.setLayout(new GridLayout(1,2));
 		f.addMouseListener(this);
@@ -171,6 +170,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		f.setVisible(true);
 		
 	}
+	
+	// get image to add images into game
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
@@ -218,9 +219,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	public void keyPressed(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 			//System.out.println(arg0.getKeyCode());
-		
-			// MIGHT NEED TO FIX THIS
-			if (gameLost == true && arg0.getKeyCode()==10) {
+			// if the person lost the game and they press enter, restart the game
+			if ((gameLost == true || isGameStarted == false) && arg0.getKeyCode()==10) {
 				Score = 0;
 				isGameStarted = true;
 				gameLost = false;
@@ -239,7 +239,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 				pep.moveLeft();
 			}
 			if (arg0.getKeyCode()==38) {
-				//pep.moveUp();
+				pep.moveUp();
 			}
 			
 			if (arg0.getKeyCode()==40) {
