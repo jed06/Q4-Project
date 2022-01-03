@@ -36,7 +36,12 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean isGameStarted = false;
 	boolean gameLost = false;
 	
-	
+	// THINGS STILL TO FIX:
+	// Pressing enter during game running resets score
+	// change to sad peppa face but dosnt change back when game restart
+	// add loost point if the star passes the bottom of frame
+	// add more stuff like more asteroids!!
+	// figure out repository thing with nanah
 	
 	public void paint(Graphics g) {
 		super.paintComponent(g);
@@ -214,8 +219,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		// TODO Auto-generated method stub
 			//System.out.println(arg0.getKeyCode());
 		
-
-			if (arg0.getKeyCode()==10) {
+			// MIGHT NEED TO FIX THIS
+			if (gameLost == true && arg0.getKeyCode()==10) {
 				Score = 0;
 				isGameStarted = true;
 				gameLost = false;
