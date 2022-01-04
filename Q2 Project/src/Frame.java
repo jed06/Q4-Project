@@ -48,7 +48,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		g.setFont(f1);
 
-		
 		// if the player looses, display the message
 		if(gameLost){
 			
