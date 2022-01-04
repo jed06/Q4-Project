@@ -33,6 +33,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Obstacle2 asteroid1;
 	Obstacle3 iceasteroid;
 	Star star1;
+	
 	Font f1 = new Font(Font.SERIF, Font.PLAIN, 100);
 	int Score = 0;
 	boolean isGameStarted = false;
