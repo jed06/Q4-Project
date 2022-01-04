@@ -16,7 +16,6 @@ public class Peppa{
 	private int vy = 0;
 	private int xy = 6;
 	
-
 	public Peppa(int x, int y) {
 		this.x = x;
 		this.y = y;
