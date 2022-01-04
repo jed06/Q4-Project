@@ -27,6 +27,7 @@ public class Peppa{
 			
 	}
 	
+	
 	public void changePicture(String newFileName) {
 		img = getImage(newFileName);
 		init(x, y);
