@@ -23,7 +23,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	
+	// TOKEN THING : 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
 	// create the objects
 	private Image img;
 	Random rn = new Random();
