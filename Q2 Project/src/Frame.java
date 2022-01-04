@@ -13,6 +13,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import javax.swing.JDialog;
@@ -35,6 +37,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	int Score = 0;
 	boolean isGameStarted = false;
 	boolean gameLost = false;
+	ArrayList <Integer> scores = new ArrayList <Integer>();
+	
 	
 	// paint the objects
 	public void paint(Graphics g) {
@@ -47,12 +51,18 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		// if the player looses, display the message
 		if(gameLost){
-			g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
 			
+			g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
 			g.setColor(Color.PINK);
-			g.drawString("you lost lol" , 100, 100);
+			g.drawString("you lost" , 100, 100);
 			g.drawString("Press enter to restart" , 100, 200);
 			g.drawString("Your Score: " + Score, 100, 300);
+			if(scores.size() >= 1) {
+				//g.drawString("Last 3 high scores: " + scores.get(scores.size()-1) +scores.get(scores.size()-2) + scores.get(scores.size()-3), 50, 400);
+				Collections.sort(scores);
+				g.drawString("highest score: " + scores.get(scores.size()-1), 50, 400);
+			}
+			
 			return;
 		}
 		
@@ -60,14 +70,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(!isGameStarted){
 			gameLost = false;
 			// setting font type
-			g.setFont(new Font("Comic Sans", Font.PLAIN, 45));
+			g.setFont(new Font("Monospaced", Font.PLAIN, 45));
 			// set font color
 			g.setColor(Color.MAGENTA);
 			// string to display
-			g.drawString("Dont touch the asteroids" , 110, 100);
-			g.drawString("Collect the Stars" , 190, 200);
-			g.drawString("Press Enter to start the game" , 70, 300);
-			g.drawString("use the arrow keys to move" , 100, 400);
+			g.drawString("welcome to my peppa game!", 50, 100);
+			
+			g.setFont(new Font("Monospaced", Font.PLAIN, 37));
+			
+			g.drawString("Collect Star -> + 1 point" , 100, 200);
+			g.drawString("Miss Star -> - 1 point" , 100, 250);
+			g.drawString("Touch asteroids -> death" , 100, 300);
+			
+			
+			g.drawString("use the arrow keys to move" , 90, 400);
+			g.drawString("Press Enter to start the game" , 70, 500);
 			
 
 			
@@ -99,7 +116,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			if(covid1.y + 15 >= pep.y && covid1.y - 15 < pep.y + 200){  //checking if covid y intersects with peppa y
 				covid1.y = -100;										//reset y location if collision occurs
 				covid1.x = rn.nextInt(700 - 10 + 1) + 10;				//reset x location to random
-				
+				scores.add(Score);
 				gameLost = true;										//if collision occurs, the player lost game
 			}
 		}
@@ -109,7 +126,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			if(asteroid1.y >= pep.y && asteroid1.y < pep.y + 200){  // checking if the 2 objects y locations intersect
 				asteroid1.y = -500;									//reset y location if collision occurs
 				asteroid1.x = rn.nextInt(700 - 10 + 1) + 10;		//reset x location to random
-				
+				scores.add(Score);
 				gameLost = true;									//if collision occurs, the player lost game
 				
 			}
@@ -120,14 +137,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			if(iceasteroid.y >= pep.y && iceasteroid.y < pep.y + 200){  // checking if the 2 objects x locations intersect
 				iceasteroid.y = -900;
 				iceasteroid.x = rn.nextInt(700 - 10 + 1) + 10;			//reseting x and y
-				
+				scores.add(Score);
 				gameLost = true;										// player lost game
 			}
+		}
+		
+		// subtract a point if they miss the star
+		if(star1.y > 600) {
+			star1.y = -900;
+			Score -= 1;
 		}
 		
 		
 		g.setColor(Color.CYAN);// setting color to display score
 		g.drawString(""+ Score , 650, 100);// displaying score string
+		
 		
 		
 	}

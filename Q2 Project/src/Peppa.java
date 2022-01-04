@@ -48,7 +48,7 @@ public class Peppa{
 	
 		
 		
-		// prevent bird from leaving top of frame
+		// prevent peppa from leaving frame boundaries
 		
 		if (y < 10) {
 			y = 10;
@@ -79,16 +79,16 @@ public class Peppa{
 		
 	}
 	
-	public void moveRight () {
+	public void moveRight () {// move right
 		x+= 15;
 	}
-	public void moveLeft () {
+	public void moveLeft () {// move left
 		x-= 15;
 	}
-	public void moveDown () {
+	public void moveDown () {// move down
 		y+= 15;
 	}
-	public void moveUp () {
+	public void moveUp () {// move up
 		y-= 15;
 	}
 	
