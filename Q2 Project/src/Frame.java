@@ -39,7 +39,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean gameLost = false;
 	ArrayList <Integer> scores = new ArrayList <Integer>();
 	Color scoreColors[] = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.MAGENTA, Color.LIGHT_GRAY, Color.PINK};
-	Color scoreColor = Color.CYAN;
+	Color scoreColor = Color.WHITE;
 	
 	// paint the objects
 	public void paint(Graphics g) {
@@ -51,13 +51,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		// if the player looses, display the message
 		if(gameLost){
 			
-			g.setFont(new Font("Comic Sans", Font.PLAIN, 50));
-			g.setColor(Color.PINK);
-			g.drawString("you lost" , 100, 100);
+			g.setFont(new Font("Monospaced", Font.BOLD, 50));
+			g.setColor(Color.MAGENTA);
+			g.drawString("you lost lol" , 100, 100);
+			g.setFont(new Font("Monospaced", Font.PLAIN, 50));
 			g.drawString("Press enter to restart" , 100, 200);
 			g.drawString("Your Score: " + Score, 100, 300);
 			if(scores.size() >= 1) {
-				//g.drawString("Last 3 high scores: " + scores.get(scores.size()-1) +scores.get(scores.size()-2) + scores.get(scores.size()-3), 50, 400);
 				Collections.sort(scores);
 				g.drawString("highest score: " + scores.get(scores.size()-1), 50, 400);
 			}
@@ -69,7 +69,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(!isGameStarted){
 			gameLost = false;
 			// setting font type
-			g.setFont(new Font("Monospaced", Font.PLAIN, 45));
+			g.setFont(new Font("Monospaced", Font.BOLD, 45));
 			// set font color
 			g.setColor(Color.MAGENTA);
 			// string to display
@@ -112,31 +112,31 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		}
 		
 		// collision between covid asteroid and peppa
-		if((covid1.x + 15 >= pep.x && covid1.x - 15 <= pep.x  + 110) ){ //checking if covid x intersects with peppa x
-			if(covid1.y + 15 >= pep.y && covid1.y - 15 < pep.y + 200){  //checking if covid y intersects with peppa y
-				covid1.y = -100;										//reset y location if collision occurs
-				covid1.x = rn.nextInt(700 - 10 + 1) + 10;				//reset x location to random
+		if((covid1.x + 15 >= pep.x && covid1.x - 15 <= pep.x  + 110) ){ 
+			if(covid1.y + 15 >= pep.y && covid1.y - 15 < pep.y + 200){  
+				covid1.y = -100;										
+				covid1.x = rn.nextInt(700 - 10 + 1) + 10;				
 				scores.add(Score);
 				gameLost = true;										//if collision occurs, the player lost game
 			}
 		}
 		
 		// collision between asteroid and peppa
-		if((asteroid1.x >= pep.x && asteroid1.x <= pep.x  + 110)) { // checking if the 2 objects x locations intersect
-			if(asteroid1.y >= pep.y && asteroid1.y < pep.y + 200){  // checking if the 2 objects y locations intersect
-				asteroid1.y = -500;									//reset y location if collision occurs
-				asteroid1.x = rn.nextInt(700 - 10 + 1) + 10;		//reset x location to random
+		if((asteroid1.x >= pep.x && asteroid1.x <= pep.x  + 110)) { 
+			if(asteroid1.y >= pep.y && asteroid1.y < pep.y + 200){  
+				asteroid1.y = -500;									
+				asteroid1.x = rn.nextInt(700 - 10 + 1) + 10;		
 				scores.add(Score);
-				gameLost = true;									//if collision occurs, the player lost game
+				gameLost = true;									
 				
 			}
 		}
 		
 		// collision between ice asteroid and peppa
-		if((iceasteroid.x >= pep.x && iceasteroid.x <= pep.x  + 110)) { // checking if the 2 objects x locations intersect
-			if(iceasteroid.y >= pep.y && iceasteroid.y < pep.y + 200){  // checking if the 2 objects x locations intersect
+		if((iceasteroid.x >= pep.x && iceasteroid.x <= pep.x  + 110)) { 
+			if(iceasteroid.y >= pep.y && iceasteroid.y < pep.y + 200){  
 				iceasteroid.y = -900;
-				iceasteroid.x = rn.nextInt(700 - 10 + 1) + 10;			//reseting x and y
+				iceasteroid.x = rn.nextInt(700 - 10 + 1) + 10;			
 				scores.add(Score);
 				gameLost = true;										// player lost game
 			}
