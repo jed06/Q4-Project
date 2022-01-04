@@ -38,7 +38,8 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	boolean isGameStarted = false;
 	boolean gameLost = false;
 	ArrayList <Integer> scores = new ArrayList <Integer>();
-	
+	Color scoreColors[] = {Color.RED, Color.ORANGE, Color.YELLOW, Color.GREEN, Color.BLUE, Color.MAGENTA, Color.LIGHT_GRAY, Color.PINK};
+	Color scoreColor = Color.CYAN;
 	
 	// paint the objects
 	public void paint(Graphics g) {
@@ -47,7 +48,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		
 		g.setFont(f1);
 
-		g.drawString(""+Score , 650, 100);
 		
 		// if the player looses, display the message
 		if(gameLost){
@@ -107,6 +107,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 					
 				star1.y = -315;
 				star1.x = rn.nextInt(700 - 10 + 1) + 10;
+				scoreColor = scoreColors[rn.nextInt(scoreColors.length)];
 					
 			}
 		}
@@ -146,13 +147,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(star1.y > 600) {
 			star1.y = -900;
 			Score -= 1;
+			
 		}
-		
-		
-		g.setColor(Color.CYAN);// setting color to display score
+		g.setColor(scoreColor);
 		g.drawString(""+ Score , 650, 100);// displaying score string
-		
-		
 		
 	}
 	
