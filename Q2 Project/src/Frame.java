@@ -148,6 +148,10 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			Score -= 1;
 			
 		}
+		
+		if (Score <= 0) {
+			Score = 0;
+		}
 		g.setColor(scoreColor);
 		g.drawString(""+ Score , 650, 100);// displaying score string
 		
