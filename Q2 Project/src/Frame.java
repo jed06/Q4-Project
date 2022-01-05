@@ -185,7 +185,6 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		randomx = rn.nextInt(700 - 10 + 1) + 10;
 		star1 = new Star (randomx, -1000);				
 		
-		//
 		f.setResizable(false);
 		f.setLayout(new GridLayout(1,2));
 		f.addMouseListener(this);
