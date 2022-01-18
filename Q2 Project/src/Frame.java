@@ -22,8 +22,30 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+// certified peppa fan <333333 
+
+// my fave part is that it is so cool how she can move in all directions
+//it was a challenging game
+//cool game
+//nice concept
+//fun to play
+//lol it was a good game but i could never get my score over 2
+//
+//good
+//i like the idea of the game
+//cool game but difficult controls
+//cool game, but the movement is a bit choppy  
+//yes....peppa pig!!
+
+//background
+
+
+
+
+
+
+
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
-	// TOKEN THING : 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
 	// create the objects
 	private Image img;
 	Random rn = new Random();
