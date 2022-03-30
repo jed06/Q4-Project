@@ -51,7 +51,7 @@ public class Background{
 
 	}
 
-	
+	   
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
 		tx.scale(5, 5);
