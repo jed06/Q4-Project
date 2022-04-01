@@ -19,15 +19,19 @@ import javax.swing.Timer;
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
 	Background 	bg 	= new Background(0, 0);
-	
-	
+	Title t = new Title(120,0);
+	Who w = new Who(170,30);
+	Logo l = new Logo(300,440);
 	public void paint(Graphics g) {
 		//background before games begins
-		
 		//ask the objects to paint themselves
 		super.paintComponent(g);
 		bg.paint(g);
-		
+		t.paint(g);
+		w.paint(g);
+		l.paint(g);
+		//g.setFont(new Font ("Serif", Font.PLAIN, 45));
+		//g.drawString("Guess the Peppa", 330, 300);
 		
 		
 		
