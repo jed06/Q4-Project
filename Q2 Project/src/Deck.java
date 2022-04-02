@@ -6,10 +6,10 @@ public class Deck {
 	private int size;
 	
 	
-	public Deck(boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat  ) {
+	public Deck( String[] n, boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat  ) {
 		for (int j = 0; j < jew.length; j++) {
 			   for (int k = 0; k<jew.length; k++) {
-			    cards.add(new Card(jew[k], hair[k], glass[k], hat[k]));
+			    cards.add(new Card(n[k], jew[k], hair[k], glass[k], hat[k]));
 			   }
 			  }
 			  size = cards.size();

@@ -1,7 +1,7 @@
 
 public class Card {
 
-	
+	private String name;
 	private boolean jewlery;
 	private boolean facialHair;
 	private boolean glasses;
@@ -9,7 +9,8 @@ public class Card {
 	
 	
 	
-	public Card(boolean j,boolean f,boolean g,boolean h) {
+	public Card(String s, boolean j,boolean f,boolean g,boolean h) {
+		name = s;
 		jewlery = j;
 		facialHair = f;
 		glasses  = g;

@@ -7,9 +7,9 @@ public abstract class Board {
 
 	 
 	 
-	 public Board(int size, boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat ) {
+	 public Board(int size,String[] name, boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat ) {
 		 cards = new Card[size];
-		 deck = new Deck(jew,hair,glass,hat);
+		 deck = new Deck(name, jew,hair,glass,hat);
 	 }
 	 public int size() {
 		  return cards.length;
