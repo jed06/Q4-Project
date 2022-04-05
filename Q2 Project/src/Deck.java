@@ -1,12 +1,20 @@
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 public class Deck {
 	private List<Card> cards;
 	private int size;
 	
-	
-	public Deck( String[] n, boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat  ) {
+	public Deck(String[] names, boolean[] jewelery, boolean[] hair, boolean[] glass, boolean[] hat) {
+		cards = new ArrayList<Card>();
+		
+		for (int i = 0; i <= names.length; i++) {
+			Card c = new Card(names[i], jewelery[i], hair[i], glass[i], hat[i]);
+			cards.add(c);
+		}
+	}
+	public void Deck2( String[] n, boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat  ) {
 		for (int j = 0; j < jew.length; j++) {
 			   for (int k = 0; k<jew.length; k++) {
 			    cards.add(new Card(n[k], jew[k], hair[k], glass[k], hat[k]));
@@ -14,6 +22,10 @@ public class Deck {
 			  }
 			  size = cards.size();
 			  shuffle();
+			  
+			  
+			 
+				  
 			 
 	}
 	public int size() {

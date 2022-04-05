@@ -2,33 +2,34 @@
 public class Card {
 
 	private String name;
-	private boolean jewlery;
-	private boolean facialHair;
-	private boolean glasses;
-	private boolean hat;
+	private boolean hasJewlery;
+	private boolean hasFacialHair;
+	private boolean hasGlasses;
+	private boolean hasHat;
 	
 	
 	
 	public Card(String s, boolean j,boolean f,boolean g,boolean h) {
 		name = s;
-		jewlery = j;
-		facialHair = f;
-		glasses  = g;
-		hat = h;
+		hasJewlery = j;
+		hasFacialHair = f;
+		hasGlasses  = g;
+		hasHat = h;
+		
 		
 	}
 	
 	
 	public boolean getJewlery() {
-		return jewlery;
+		return hasJewlery;
 	}
 	public boolean getFacialHair() {
-		return facialHair;
+		return hasFacialHair;
 	}
 	public boolean getGlasses() {
-		return glasses;
+		return hasGlasses;
 	}
 	public boolean getHat() {
-		return hat;
+		return hasHat;
 	}
 }

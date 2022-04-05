@@ -7,7 +7,7 @@ import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
-public class gif{
+public class testpic{
 	
 	//image related variables
 	private int x, y;
@@ -15,8 +15,8 @@ public class gif{
 	private AffineTransform tx;
 	public int bvy = 1;
 
-	public gif(int x, int y) {
-		img = getImage("/imgs/gir.png"); //load the image for Tree
+	public testpic(int x, int y) {
+		img = getImage("/imgs/Freddy Fox.png"); //load the image for Tree
 		this.x = x;
 		this.y = y;
 		tx = AffineTransform.getTranslateInstance(x, y );
@@ -29,16 +29,9 @@ public class gif{
 	}
 	/* update variables here */
 	private void update() {
-		if(y>500) {
-			bvy *= -1;
-		}
-		if(y < 425) {
-			bvy *= -1;
-		}
-		y = y + bvy;
 		
-		tx.setToTranslation(x, y);
-		tx.scale(.3	, .3);
+		
+		
 	}
 	
 	/* Drawing commands */
@@ -62,13 +55,13 @@ public class gif{
 	   
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
-		tx.scale(0.3, 0.3);
+		tx.scale(1, 1);
 	}
 
 	private Image getImage(String path) {
 		Image tempImage = null;
 		try {
-			URL imageURL = gif.class.getResource(path);
+			URL imageURL = testpic.class.getResource(path);
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();

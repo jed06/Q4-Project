@@ -29,6 +29,9 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Epic e = new Epic(850, 450);
 	rpic r = new rpic (250,450);
 	gif f = new gif(650, 450);
+	
+	testpic fox = new testpic(0,0);
+	
 	boolean gameStart = false;
 	public void paint(Graphics g) {
 		//background before games begins
@@ -43,7 +46,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			e.paint(g);
 			r.paint(g);
 			f.paint(g);
-
+			fox.paint(g);
 			
 			g.setColor(Color.black);
 			g.setFont(new Font ("Serif", Font.PLAIN, 25));
