@@ -43,14 +43,21 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			e.paint(g);
 			r.paint(g);
 			f.paint(g);
+
+			
 			g.setColor(Color.black);
 			g.setFont(new Font ("Serif", Font.PLAIN, 25));
 			g.drawString("[**press enter**]", 420, 590);
 			return;
 		}
 		
-		bg.paint(g);
-	
+		if(gameStart) {
+			super.paintComponent(g);
+			bg.paint(g);
+
+			
+		}
+		
 		
 		
 	}
