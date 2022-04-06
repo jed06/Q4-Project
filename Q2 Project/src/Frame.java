@@ -29,7 +29,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	Epic e = new Epic(850, 450);
 	rpic r = new rpic (250,450);
 	gif f = new gif(650, 450);
-	
+	Card o = new Card("Cany",false, false, false, false);
 	testpic fox = new testpic(0,0);
 	
 	boolean gameStart = false;
@@ -46,7 +46,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			e.paint(g);
 			r.paint(g);
 			f.paint(g);
-			fox.paint(g);
+			o.paint(g);
 			
 			g.setColor(Color.black);
 			g.setFont(new Font ("Serif", Font.PLAIN, 25));
