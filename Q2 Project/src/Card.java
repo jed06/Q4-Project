@@ -18,7 +18,7 @@ public class Card {
 	private boolean hasGlasses;
 	private boolean hasHat;
 	private int x, y;
-	private Image img; 	
+	protected static Image img; 	
 	private AffineTransform tx;
 	
 	
@@ -28,14 +28,7 @@ public class Card {
 		hasFacialHair = f;
 		hasGlasses  = g;
 		hasHat = h;
-		String [] picture = {"/imgs/Candy Cat.png","/imgs/Danny Dog.png","/imgs/Emily Elephant.png"};
-		for (int i = 0; i < picture.length; i++) {
-			img = getImage(picture[i]); //load the image for Tree
-		}
-		this.x = x;
-		this.y = y;
-		tx = AffineTransform.getTranslateInstance(x, y );
-		init(x, y); 
+		
 		
 	}
 	   

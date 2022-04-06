@@ -21,6 +21,22 @@ import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
+	
+	String[] NAMES = {"Suzy Sheep", "Candy Cat", "Zoe Zebra",
+			"Rebecca Rabbit", "Emily Elephant",
+			"George Pig","Danny Dog",
+			"Molly Mole", "Freddy Fox" ,
+			"Mandy Mouse", " Gerald Giraffe","Pedro Pony"};
+	 boolean[] JEW =
+			{true,false,true,false,true,false,false,true,true,false,true, false};
+	 boolean[] HAIR =
+			{false,false,false,false,false,true,true,false,true,false, true ,true};
+	 boolean[] GLASS =
+			{true,true,false,false,false,true,false,true,true, true,false, true};
+	 boolean[] HAT =
+			{true,true,true,true,false,false,false,false, false, false, false, true};
+	
+	
 	Background 	bg 	= new Background(0, 0);
 	Title t = new Title(120,0);
 	Who w = new Who(170,30);
@@ -31,7 +47,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 	gif f = new gif(650, 450);
 	Card o = new Card("Cany",false, false, false, false);
 	testpic fox = new testpic(0,0);
-	
+	//Deck deck = new Deck(NAMES,JEW,HAIR,GLASS,HAT);
 	boolean gameStart = false;
 	public void paint(Graphics g) {
 		//background before games begins
@@ -47,6 +63,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 			r.paint(g);
 			f.paint(g);
 			o.paint(g);
+			//deck.paint(g);
 			
 			g.setColor(Color.black);
 			g.setFont(new Font ("Serif", Font.PLAIN, 25));
