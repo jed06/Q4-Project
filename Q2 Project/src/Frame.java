@@ -21,33 +21,23 @@ import javax.swing.Timer;
 
 public class Frame extends JPanel implements ActionListener, MouseListener, KeyListener {
 	
+	Picture bg 	= new Picture("images.png", 0, 0, 4.5, 4.5);
 	
-	String[] NAMES = {"Suzy Sheep", "Candy Cat", "Zoe Zebra",
-			"Rebecca Rabbit", "Emily Elephant",
-			"George Pig","Danny Dog",
-			"Molly Mole", "Freddy Fox" ,
-			"Mandy Mouse", " Gerald Giraffe","Pedro Pony"};
-	 boolean[] JEW =
-			{true,false,true,false,true,false,false,true,true,false,true, false};
-	 boolean[] HAIR =
-			{false,false,false,false,false,true,true,false,true,false, true ,true};
-	 boolean[] GLASS =
-			{true,true,false,false,false,true,false,true,true, true,false, true};
-	 boolean[] HAT =
-			{true,true,true,true,false,false,false,false, false, false, false, true};
+	Picture guess = new Picture("GameTitle.png",120, 0, 1.0, 1.0);
+	Picture who = new Picture("who.png", 170, 30, 0.3, 0.3);
+	Picture logo = new Picture("logo.png", 300, 440, 0.3, 0.3);
+	Picture george = new Picture("pwdino.png", 50, 420, 0.3, 0.3, 1.05);
+	Picture cat = new Picture("c.png", 850, 450, 0.3, 0.3, 1.2);
+	Picture racoon = new Picture ("r.png", 250, 430, 0.07, 0.07, 1);
+	Picture giraffe = new Picture("gir.png", 650, 440, 0.3, 0.3, 1.03);
+	
+	String [] pictures = 
+		{"/imgs/Suzie Sheep.png","/imgs/Candy Cat.png","/imgs/Zoe Zebra.png","/imgs/Rebecca Rabbit.png", 
+				"/imgs/Emily Elephant.png", "/imgs/George Pig.png", "/imgs/Danny Dog.png", "/imgs/Molly Mole.png", 
+				"/imgs/Freddy Fox.png", "/imgs/Mandy Mouse.png", "/imgs/Gerald Giraffe.png", "/imgs/Pedro Pony.png"};
 	
 	
-	Background 	bg 	= new Background(0, 0);
-	Title t = new Title(120,0);
-	Who w = new Who(170,30);
-	Logo l = new Logo(300,440);
-	hpic d = new hpic(50,450);
-	Epic e = new Epic(850, 450);
-	rpic r = new rpic (250,450);
-	gif f = new gif(650, 450);
-	Card o = new Card("Cany",false, false, false, false);
-	testpic fox = new testpic(0,0);
-	//Deck deck = new Deck(NAMES,JEW,HAIR,GLASS,HAT);
+	
 	boolean gameStart = false;
 	public void paint(Graphics g) {
 		//background before games begins
@@ -55,15 +45,13 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(!gameStart) {
 			super.paintComponent(g);
 			bg.paint(g);
-			t.paint(g);
-			w.paint(g);
-			//l.paint(g);
-			d.paint(g);
-			e.paint(g);
-			r.paint(g);
-			f.paint(g);
-			o.paint(g);
-			//deck.paint(g);
+			guess.paint(g);
+			who.paint(g);
+			//logo.paint(g);
+			george.paint(g);
+			cat.paint(g);
+			racoon.paint(g);
+			giraffe.paint(g);
 			
 			g.setColor(Color.black);
 			g.setFont(new Font ("Serif", Font.PLAIN, 25));
@@ -74,23 +62,20 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		if(gameStart) {
 			super.paintComponent(g);
 			bg.paint(g);
-
-			
-		}
-		
-		
-		
+			Deck deck = new Deck ();
+			deck.paint(g);
+		}		
 	}
 
 	
 	public static void main(String[] arg) {
 		Frame f = new Frame();
 		
-		
 	}
+	
 	JButton button;
-	public Frame() {
-		
+	
+	public Frame() {		
 		
 		JFrame f = new JFrame("Guess Peppa");
 		f.setSize(new Dimension(1000, 700));
@@ -103,9 +88,7 @@ public class Frame extends JPanel implements ActionListener, MouseListener, KeyL
 		Timer t = new Timer(16, this);
 		t.start();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.setVisible(true);
-	
-		
+		f.setVisible(true);		
 		
 	}
 	

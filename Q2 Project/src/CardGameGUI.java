@@ -67,6 +67,7 @@ import java.util.ArrayList;
 		  * Initialize the GUI.
 		  * @param gameBoard is a <code>Board</code> subclass.
 		  */
+		 
 		 public CardGameGUI(Board gameBoard) {
 		  board = gameBoard;
 		 

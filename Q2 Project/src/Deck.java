@@ -13,59 +13,58 @@ public class Deck {
 	private Image img; 	
 	private AffineTransform tx;
 	public int bvy = 1;
-	
-	private List<Card> cards;
+
+	private List<Card> cards = new ArrayList();
 	private int size;
 	public static int next;
 	public Deck(String[] names, boolean[] jewelery, boolean[] hair, boolean[] glass, boolean[] hat) {
 		this.size = 12;
-		String [] picture = {"/imgs/Candy Cat.png","/imgs/Danny Dog.png","/imgs/Emily Elephant.png"};
-		
-		for (int i = 0; i < size; i++) {
-			//cards.add(new Card(names[i], jewelery[i], hair[i], glass[i], hat[i]));
-			//Card.img = getImage(picture[next]);
+		//Card SuzySheep = new Card ("Suzy Sheep", "Suzy Sheep", true , false , true , true ,  1 );
+		//Card SuzySheep = new Card ("Suzy Sheep", "Suzy Sheep", true , false , true , true ,  1 );
+		for (int i = 0 ; i < GameBoard.BOARD_SIZE; i++) {
+			Card c = new Card(GameBoard.NAMES[i], GameBoard.NAMES[i], GameBoard.JEW[i], GameBoard.HAIR[i], GameBoard.GLASS[i], GameBoard.HAT[i], i, x, y);
+			cards.add(c);
 		}
-			  
-			  
-		next +=1;	 
-				  
+		  
 			 
 	}
-	public int size() {
-		  return size;
-		 }
 	
-	private Image getImage(String path) {
-		Image tempImage = null;
-		try {
-			URL imageURL = Deck.class.getResource(path);
-			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
-		} catch (Exception e) {
-			e.printStackTrace();
+	public Deck() {
+		this.size = 12;
+		int x, y = 0;
+		//Card SuzySheep = new Card ("Suzy Sheep", "Suzy Sheep", true , false , true , true ,  1 );
+		//Card SuzySheep = new Card ("Suzy Sheep", "Suzy Sheep", true , false , true , true ,  1 );
+		for (int i = 0 ; i < GameBoard.BOARD_SIZE; i++) {
+			x = i%4 * 200;
+
+			if (i < 4) {
+				y = 0;
+			}
+			
+			else if ( i < 8 ) {
+				y = 150;
+			}
+			
+			else {
+				y = 300;
+			}
+			
+			Card c = new Card(GameBoard.NAMES[i], GameBoard.NAMES[i], GameBoard.JEW[i], GameBoard.HAIR[i], GameBoard.GLASS[i], GameBoard.HAT[i], i, x, y);
+			cards.add(c);
 		}
-		return tempImage;
-	} 
-	
-	public void shuffle() {
-		  for (int k = cards.size() - 1; k > 0; k--) {
-		   int howMany = k + 1;
-		   int start = 0;
-		   int randPos = (int) (Math.random() * howMany) + start;
-		   Card temp = cards.get(k);
-		   cards.set(k, cards.get(randPos));
-		   cards.set(randPos, temp);
-		  }
-		  size = cards.size();
-		 }
-	public void paint(Graphics g) {
-		// TODO Auto-generated method stub
-Graphics2D g2 = (Graphics2D) g;
-		
-		
-		//call update to update the actually picture location
-		
-		
-		g2.drawImage(img, tx, null);
+		  
+			 
 	}
+	
+
+	public void paint(Graphics g) {
+		//these are the 2 lines of code needed draw an image on the screen
+		for (Card card : cards) {
+			card.paint(g);
+		}
+		
+		
+	}
+
 
 }
