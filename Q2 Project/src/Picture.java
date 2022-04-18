@@ -1,16 +1,25 @@
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Panel;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.geom.AffineTransform;
 import java.net.URL;
 
+import javax.swing.*;
+
+
 //Base Picture class for all images
 
 
-public class Picture{
+public class Picture extends JPanel  implements ActionListener {
 	
 	//image related variables
 	private int X, Y;
@@ -21,22 +30,7 @@ public class Picture{
 	public double bvy = 0;
 	String imageName = "";
 	
-	public Picture(String imageName, int x, int y, double sx, double sy) {
-		this.imageName = imageName;
-		
-		img = getImage("/imgs/" + imageName); //
-		X = x;
-		Y = y;
-		
-		SX = sx;
-		SY = sy;
-		
-		tx = AffineTransform.getTranslateInstance(X, Y );
-		init(X, Y); 		
-	}
-	
-
-	public Picture(String imageName, int x, int y, double sx, double sy, double bvy) {
+	public Picture(String imageName, int x, int y, double sx, double sy, double bvy) {		
 		img = getImage("/imgs/" + imageName); //
 		X = x;
 		Y = y;
@@ -45,22 +39,24 @@ public class Picture{
 		SY = sy;
 		this.bvy = bvy;
 		tx = AffineTransform.getTranslateInstance(X, Y );
-		init(X, Y); 		
+		tx.setToTranslation(x, y);
+		tx.scale(sx, sy);	
+		this.setBounds(x, y, 100, 100);
+		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		this.setBackground(Color.cyan);
+		
 	}
 
+	public Picture(String imageName, int x, int y, double sx, double sy) {
+		this(imageName, x, y , sx, sy, 0);
+	}
 	
 	public Picture(String imageName, int x, int y) {
-		img = getImage("/imgs/" + imageName); //
-		X = x;
-		Y = y;
-		tx = AffineTransform.getTranslateInstance(X, Y);
-		init(X, Y); 		
+		this(imageName, x, y , 0.5, 0.5); 		
 	}
 
 	public Picture(String imageName) {
-		img = getImage("/imgs/" + imageName); //
-		tx = AffineTransform.getTranslateInstance(X, Y);
-		init(X, Y); 		
+		this(imageName, 0, 0);
 	}
 
 	public void changePicture(String newFileName) {
@@ -82,45 +78,42 @@ public class Picture{
 		
 		tx.setToTranslation(X, Y);
 		tx.scale(SX	, SY);
-		
-		//System.out.println("SX SY"  + SX + ", " + SY + "X Y " + "X" + X  + ", Y" + Y );
-		
-		//System.out.println("SX SY"  + SX + ", " + SY + "X Y " + "X" + X  + ", Y" + Y );
-		
 	}
-	
-	
-	
+		
 	/* Drawing commands */
 	public void paint(Graphics g) {
 		//these are the 2 lines of code needed draw an image on the screen
 		Graphics2D g2 = (Graphics2D) g;		
-		
 		update();
-		
-		
 		g2.drawImage(img, tx, null);
 		
-		
+		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+		setBackground(Color.cyan);
+	
 	}
-
-	   
+ 
 	private void init(double a, double b) {
 		tx.setToTranslation(a, b);
 		tx.scale(SX, SY);
 	}
 
 	private Image getImage(String path) {
-		//System.out.println(path);
 		Image tempImage = null;
 		try {
 			URL imageURL = Picture.class.getResource(path);
-			//System.out.println(imageURL);
 			
 			tempImage = Toolkit.getDefaultToolkit().getImage(imageURL);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return tempImage;
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		System.out.print(e.getID());
+		
 	}
 }
