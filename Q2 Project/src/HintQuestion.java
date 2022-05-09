@@ -1,7 +1,7 @@
 
 public class HintQuestion {
 	
-	public boolean HasJewlery;
+	public boolean HasJewelry;
 	public boolean HasHair;
 	public boolean HasGlasses;
 	public boolean HasHat;
@@ -12,12 +12,12 @@ public class HintQuestion {
 	
 	public boolean IsAnswered;
 	
-	public HintQuestion(String text, boolean hasJewlery, boolean hasHair, boolean hasGlasses, boolean hasHat, int index) {
+	public HintQuestion(String text, boolean hasJewelry, boolean hasHair, boolean hasGlasses, boolean hasHat, int index) {
 		Text = text;
 		HasGlasses = hasGlasses;
 		HasHair = hasHair;
 		HasHat = hasHat;
-		HasJewlery = hasJewlery;
+		HasJewelry = hasJewelry;
 		Index = index;
 	}
 	

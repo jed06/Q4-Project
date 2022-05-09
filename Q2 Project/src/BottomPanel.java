@@ -36,14 +36,16 @@ public class BottomPanel  extends JPanel{
 			}
 		});
 		
-		QuestionLabel = new JLabel("Sample Question Goes here");
+		QuestionLabel = new JLabel("");
 		QuestionLabel.setBounds(100, 10, 400, 50);
 		QuestionLabel.setFont(new Font("Verdana", Font.PLAIN, 18));
 		Border blackline = BorderFactory.createLineBorder(Color.black);
 		QuestionLabel.setBorder(blackline);
-		
+		QuestionLabel.setVerticalAlignment(SwingConstants.CENTER);
+		QuestionLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		UpdateLabelText() ;
 		
+	
 		NextButton = new JButton(">");
 		NextButton.setBounds(520, 10, 50, 50);
 		
@@ -63,13 +65,24 @@ public class BottomPanel  extends JPanel{
 		YesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CurrentHintQuestion.IsAnswered = true;
-				if(CurrentHintQuestion.HasGlasses) {
+				if(CurrentHintQuestion.HasJewelry) {
+					UpdateLabelText() ;
+					container.SetJewelrySelected();
+				}
+				else if(CurrentHintQuestion.HasHair) {
+					UpdateLabelText() ;
+					container.SetHairSelected();
+				}
+				else if(CurrentHintQuestion.HasGlasses) {
 					UpdateLabelText() ;
 					container.SetGlassesSelected();
-				}else if(CurrentHintQuestion.HasJewlery) {
-					UpdateLabelText() ;
-					container.SetJewlerySelected();
 				}
+				else if(CurrentHintQuestion.HasHat) {
+					UpdateLabelText() ;
+					container.SetHatSelected();
+				}
+				
+				container.showComputerQuestionDialog();
 			}
 		});
 		
@@ -78,8 +91,7 @@ public class BottomPanel  extends JPanel{
 		this.add(NextButton);
 		this.add(YesButton);		
 	}
-	
-	private void SetNextQuestion() {
+		private void SetNextQuestion() {
 		int nextIndex = CurrentHintQuestion.Index;
 		
 		for(int i= 0; i < 4; i++) {
@@ -100,9 +112,8 @@ public class BottomPanel  extends JPanel{
 		
 		return icon;
 	}
-	
 	private void UpdateLabelText() {
-		QuestionLabel.setText(CurrentHintQuestion.Text + " " + CurrentHintQuestion.IsAnswered);
+		QuestionLabel.setText(CurrentHintQuestion.Text /*+ " " + CurrentHintQuestion.IsAnswered*/);
 	}
 	
 	private Image getImage(String name) {

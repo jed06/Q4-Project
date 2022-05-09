@@ -32,10 +32,12 @@ public class Deck extends JPanel {
 
 	public GuessWhoFrame Container;
 	public PictureCard UserSelectedCard;
+	public PictureCard ComputerSelectedCard;
 
-	private boolean isJewlerySelected;
+	private boolean isJewelrySelected;
 	private boolean isGlassesSelected;
 	private boolean isHairSelected;
+	private boolean isHatSelected;
 	
 	private List<PictureCard> cards = new ArrayList();
 
@@ -45,6 +47,23 @@ public class Deck extends JPanel {
 		this.setPreferredSize(new Dimension(800, 600));
 		int x = 0, y = 0;
 
+		int randomCardNumber = (int)(Math.random()*17);
+		Card cc = GameBoard.cards[randomCardNumber];
+		
+		PictureCard pc1 = new PictureCard(cc.getName(), 
+				cc.getName(), 
+				cc.getJewelry(), 
+				cc.getFacialHair(),
+				cc.getGlasses(),
+				cc.getHat(),
+				cc.getIndex());
+		
+		if (ComputerSelectedCard == null) {
+			ComputerSelectedCard = pc1;
+			Container.SetComputerSelectedCard(ComputerSelectedCard);
+		}
+		
+		
 		for (int i = 0; i < GameBoard.BOARD_SIZE; i++) {
 
 			if (i % 4 == 0) {
@@ -58,56 +77,117 @@ public class Deck extends JPanel {
 			} else {
 				y = (i / 4 * 140) + 20;
 			}
+			
+			Card cardData = GameBoard.cards[i];
+			
+			PictureCard pc = new PictureCard(cardData.getName(), 
+					cardData.getName(), 
+					cardData.getJewelry(), 
+					cardData.getFacialHair(),
+					cardData.getGlasses(),
+					cardData.getHat(),
+					cardData.getIndex()
+					);
+			
+			
+			pc.setBounds(x, y, 120, 120);
+			cards.add(pc);
 
-			PictureCard c = new PictureCard(GameBoard.NAMES[i], GameBoard.NAMES[i], GameBoard.JEW[i], GameBoard.HAIR[i],
-					GameBoard.GLASS[i], GameBoard.HAT[i], i);
-			c.setBounds(x, y, 120, 120);
-			cards.add(c);
-
-			c.addActionListener(new ActionListener() {
+			pc.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					if (UserSelectedCard == null) {
 							String name = ((Card)e.getSource()).getName();
 							for (PictureCard pc : cards) {
 						        if (pc.getName().equals(name)) {
 						            UserSelectedCard = pc;
-						            Container.CardSelected(UserSelectedCard);
+						            Container.SetUserSelectedCard(UserSelectedCard);
 						            break;
 						        }
 						    }
 					}
 				}
 			});
-
-			this.add(c);
+			
+			
+			this.add(pc);
+			
+		}
+		
+	}
+ 
+	
+	public void SetJewelrySelected() {
+		//isJewelrySelected = true;
+		if (ComputerSelectedCard.getJewelry()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getJewelry()) {
+					pc.SetXImage();
+				}
+			}
+		}
+		else {
+			for (PictureCard pc : cards) {
+				if(pc.getJewelry()) {
+					pc.SetXImage();
+				}
+			}
 		}
 	}
-
 	public void SetHairSelected() {
-		isHairSelected = true;
-		for (PictureCard pc : cards) {
-			if (pc.getFacialHair()) {
-				pc.SetXImage();
+		//isHairSelected = true;
+		if (ComputerSelectedCard.getFacialHair()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getFacialHair()) {
+					pc.SetXImage();
+				}
+			}
+		}
+		else {
+			for (PictureCard pc : cards) {
+				if(pc.getFacialHair()) {
+					pc.SetXImage();
+				}
 			}
 		}
 	}
 	
 	public void SetGlassesSelected() {
-		isGlassesSelected = true;
+		//isGlassesSelected = true;
+		if (ComputerSelectedCard.getGlasses()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getGlasses()) {
+					pc.SetXImage();
+				}
+			}
+		}
+		else {
+			for (PictureCard pc : cards) {
+				if(pc.getGlasses()) {
+					pc.SetXImage();
+				}
+			}
+		}
+
+	}
+
+	public void SetHatSelected() {
+		//isHatSelected = true;
+		if (ComputerSelectedCard.getHat()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getHat()) {
+					pc.SetXImage();
+				}
+			}
+		}	
+
+	
+	else {
 		for (PictureCard pc : cards) {
-			if (pc.getGlasses()) {
+			if(pc.getHat()) {
 				pc.SetXImage();
 			}
 		}
 	}
-
-	public void SetJewlerySelected() {
-		isJewlerySelected = true;
-		for (PictureCard pc : cards) {
-			if (pc.getJewlery()) {
-				pc.SetXImage();
-			}
-		}
 	}
 
 }

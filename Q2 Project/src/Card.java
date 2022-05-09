@@ -21,31 +21,35 @@ import javax.swing.*;
 public class Card extends JButton {
 
 	private String name;
-	private boolean hasJewlery;
+	private boolean hasJewelry;
 	private boolean hasHair;
 	private boolean hasGlasses;
 	private boolean hasHat;
 	private int x, y;
 	private String imgURL;
-
+	private int index;
+	
 	public Card() {
 		this.setBackground(Color.CYAN);
+		this.imgURL = "";
+		this.name = "";
 	}
 
-	public Card(String name, String imgURL, boolean hasJewelery, boolean hasHair, boolean hasGlasses, boolean hasHat,
+	public Card(String name, String imgURL, boolean hasJewelry, boolean hasHair, boolean hasGlasses, boolean hasHat,
 			int index) {
 		// this.setText(name);
 		this.setBackground(Color.PINK);
 		this.name = name;
-		this.hasJewlery = hasJewelery;
+		this.hasJewelry = hasJewelry;
 		this.hasHair = hasHair;
 		this.hasGlasses = hasGlasses;
 		this.hasHat = hasHat;
 		this.imgURL = imgURL;
+		this.index = index;
 	}
 
 	public void printInfo() {
-		System.out.println("name" + "," + "imgURL" + "," + "hasJewelery" + "," + "hasHair" + "," + "hasGlasses" + ","
+		System.out.println("name" + "," + "imgURL" + "," + "hasJewelry" + "," + "hasHair" + "," + "hasGlasses" + ","
 				+ "hasHat" + "," + "index");
 	}
 
@@ -54,12 +58,37 @@ public class Card extends JButton {
 		return url;
 	}
 
+	public void setName(String n) {
+		name = n;
+	}
+
+	public void setJewelry(boolean j) {
+		hasJewelry = j;
+	}
+
+	public void setFacialHair(boolean h) {
+		hasHair = h;
+	}
+
+	public void setGlasses(boolean g) {
+		hasGlasses = g;
+	}
+
+	public void setHat(boolean h) {
+		hasHat = h;
+	}
+
+	public void setIndex(int i) {
+		index = i;
+	}
+	
+	
 	public String getName() {
 		return name;
 	}
 
-	public boolean getJewlery() {
-		return hasJewlery;
+	public boolean getJewelry() {
+		return hasJewelry;
 	}
 
 	public boolean getFacialHair() {
@@ -74,4 +103,7 @@ public class Card extends JButton {
 		return hasHat;
 	}
 
+	public int getIndex() {
+		return index;
+	}
 }
