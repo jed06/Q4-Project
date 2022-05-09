@@ -1,46 +1,193 @@
 import java.util.List;
 import java.util.Random;
+
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.GradientPaint;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.GridLayout;
+import java.awt.Image;
+import java.awt.Insets;
+import java.awt.RenderingHints;
+import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.AffineTransform;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.net.URL;
 import java.util.ArrayList;
 
-public class Deck {
-	private List<Card> cards;
-	private int size;
+public class Deck extends JPanel {
+
+	public GuessWhoFrame Container;
+	public PictureCard UserSelectedCard;
+	public PictureCard ComputerSelectedCard;
+
+	private boolean isJewelrySelected;
+	private boolean isGlassesSelected;
+	private boolean isHairSelected;
+	private boolean isHatSelected;
 	
-	public Deck(String[] names, boolean[] jewelery, boolean[] hair, boolean[] glass, boolean[] hat) {
-		cards = new ArrayList<Card>();
+	private List<PictureCard> cards = new ArrayList();
+
+	public Deck(GuessWhoFrame container) {
+		Container = container;
+		this.setLayout(null);
+		this.setPreferredSize(new Dimension(800, 600));
+		int x = 0, y = 0;
+
+		int randomCardNumber = (int)(Math.random()*17);
+		Card cc = GameBoard.cards[randomCardNumber];
 		
-		for (int i = 0; i <= names.length; i++) {
-			Card c = new Card(names[i], jewelery[i], hair[i], glass[i], hat[i]);
-			cards.add(c);
+		PictureCard pc1 = new PictureCard(cc.getName(), 
+				cc.getName(), 
+				cc.getJewelry(), 
+				cc.getFacialHair(),
+				cc.getGlasses(),
+				cc.getHat(),
+				cc.getIndex());
+		
+		if (ComputerSelectedCard == null) {
+			ComputerSelectedCard = pc1;
+			Container.SetComputerSelectedCard(ComputerSelectedCard);
+		}
+		
+		
+		for (int i = 0; i < GameBoard.BOARD_SIZE; i++) {
+
+			if (i % 4 == 0) {
+				x = 50;
+			} else {
+				x = x + 140 + 10;
+			}
+
+			if (i / 4 == 0) {
+				y = 20;
+			} else {
+				y = (i / 4 * 140) + 20;
+			}
+			
+			Card cardData = GameBoard.cards[i];
+			
+			PictureCard pc = new PictureCard(cardData.getName(), 
+					cardData.getName(), 
+					cardData.getJewelry(), 
+					cardData.getFacialHair(),
+					cardData.getGlasses(),
+					cardData.getHat(),
+					cardData.getIndex()
+					);
+			
+			
+			pc.setBounds(x, y, 120, 120);
+			cards.add(pc);
+
+			pc.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (UserSelectedCard == null) {
+							String name = ((Card)e.getSource()).getName();
+							for (PictureCard pc : cards) {
+						        if (pc.getName().equals(name)) {
+						            UserSelectedCard = pc;
+						            Container.SetUserSelectedCard(UserSelectedCard);
+						            break;
+						        }
+						    }
+					}
+				}
+			});
+			
+			
+			this.add(pc);
+			
+		}
+		
+	}
+ 
+	
+	public void SetJewelrySelected() {
+		//isJewelrySelected = true;
+		if (ComputerSelectedCard.getJewelry()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getJewelry()) {
+					pc.SetXImage();
+				}
+			}
+		}
+		else {
+			for (PictureCard pc : cards) {
+				if(pc.getJewelry()) {
+					pc.SetXImage();
+				}
+			}
 		}
 	}
-	public void Deck2( String[] n, boolean[] jew, boolean[] hair, boolean[] glass, boolean[] hat  ) {
-		for (int j = 0; j < jew.length; j++) {
-			   for (int k = 0; k<jew.length; k++) {
-			    cards.add(new Card(n[k], jew[k], hair[k], glass[k], hat[k]));
-			   }
-			  }
-			  size = cards.size();
-			  shuffle();
-			  
-			  
-			 
-				  
-			 
+	public void SetHairSelected() {
+		//isHairSelected = true;
+		if (ComputerSelectedCard.getFacialHair()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getFacialHair()) {
+					pc.SetXImage();
+				}
+			}
+		}
+		else {
+			for (PictureCard pc : cards) {
+				if(pc.getFacialHair()) {
+					pc.SetXImage();
+				}
+			}
+		}
 	}
-	public int size() {
-		  return size;
-		 }
-	public void shuffle() {
-		  for (int k = cards.size() - 1; k > 0; k--) {
-		   int howMany = k + 1;
-		   int start = 0;
-		   int randPos = (int) (Math.random() * howMany) + start;
-		   Card temp = cards.get(k);
-		   cards.set(k, cards.get(randPos));
-		   cards.set(randPos, temp);
-		  }
-		  size = cards.size();
-		 }
+	
+	public void SetGlassesSelected() {
+		//isGlassesSelected = true;
+		if (ComputerSelectedCard.getGlasses()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getGlasses()) {
+					pc.SetXImage();
+				}
+			}
+		}
+		else {
+			for (PictureCard pc : cards) {
+				if(pc.getGlasses()) {
+					pc.SetXImage();
+				}
+			}
+		}
+
+	}
+
+	public void SetHatSelected() {
+		//isHatSelected = true;
+		if (ComputerSelectedCard.getHat()) {
+			for (PictureCard pc : cards) {
+				if(!pc.getHat()) {
+					pc.SetXImage();
+				}
+			}
+		}	
+
+	
+	else {
+		for (PictureCard pc : cards) {
+			if(pc.getHat()) {
+				pc.SetXImage();
+			}
+		}
+	}
+	}
 
 }
