@@ -73,7 +73,7 @@ public class PictureCard extends Card {
 		return combinedImage;
 	}
 	
-	private Image getImage(String name) {
+	public Image getImage(String name) {
 		
 		Image tempImage = null;
 		try {
@@ -97,7 +97,7 @@ public class PictureCard extends Card {
 	public void SetImage(String name) {
 		if(name != null && name.length() > 0) {
 			Image img = getImage(name);
-			Image newimg = img.getScaledInstance(170, 170, java.awt.Image.SCALE_SMOOTH);
+			Image newimg = img.getScaledInstance(200, 200, java.awt.Image.SCALE_SMOOTH);
 			ImageIcon icon = new ImageIcon(newimg);
 			setIcon(icon);
 		}

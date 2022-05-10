@@ -32,7 +32,7 @@ public class BottomPanel  extends JPanel{
 		
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+			SetPreviousQuestion();	
 			}
 		});
 		
@@ -82,7 +82,7 @@ public class BottomPanel  extends JPanel{
 					container.SetHatSelected();
 				}
 				
-				container.showComputerQuestionDialog();
+				//container.showComputerQuestionDialog();
 			}
 		});
 		
@@ -91,21 +91,40 @@ public class BottomPanel  extends JPanel{
 		this.add(NextButton);
 		this.add(YesButton);		
 	}
-		private void SetNextQuestion() {
-		int nextIndex = CurrentHintQuestion.Index;
+	private void SetNextQuestion() {
+	int nextIndex = CurrentHintQuestion.Index;
 		
-		for(int i= 0; i < 4; i++) {
-			nextIndex += 1;
-			nextIndex = nextIndex % GameBoard.HINT_QUESTIONS.length;
+	for(int i= 0; i < 4; i++) {
+		nextIndex += 1;
+		nextIndex = nextIndex % GameBoard.HINT_QUESTIONS.length;
 			
-			if(GameBoard.HINT_QUESTIONS[nextIndex].IsAnswered == false) {
-				CurrentHintQuestion = GameBoard.HINT_QUESTIONS[nextIndex];
+		if(GameBoard.HINT_QUESTIONS[nextIndex].IsAnswered == false) {
+			CurrentHintQuestion = GameBoard.HINT_QUESTIONS[nextIndex];
+			break;
+		}
+	}
+		
+	UpdateLabelText() ;
+	}
+	
+	private void SetPreviousQuestion() {
+		int previousIndex = CurrentHintQuestion.Index;
+			
+		for(int i= 0; i < 4; i++) {
+			previousIndex -= 1;
+			if(CurrentHintQuestion.Index == 0) {
+				previousIndex = 3;
+			}
+		
+			if(GameBoard.HINT_QUESTIONS[previousIndex].IsAnswered == false) {
+				CurrentHintQuestion = GameBoard.HINT_QUESTIONS[previousIndex];
 				break;
 			}
 		}
-		
+			
 		UpdateLabelText() ;
-	}
+		}
+	
 	
 	private ImageIcon getIcon(String name) {
 		ImageIcon icon = new ImageIcon(getImage(name));

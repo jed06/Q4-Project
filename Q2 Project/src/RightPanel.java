@@ -29,8 +29,7 @@ public class RightPanel extends JPanel {
 		UserselectedCard.setHat(card.getHat());
 		UserselectedCard.setIndex(card.getIndex());
 		
-		UserselectedCard.SetImage(card.getImgURL());
-		
+		UserselectedCard.SetImage(card.getImgURL());		
 	
 	}
  
