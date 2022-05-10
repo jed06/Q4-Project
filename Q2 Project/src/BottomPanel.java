@@ -25,14 +25,14 @@ public class BottomPanel  extends JPanel{
 		
 		PreviousButton = new JButton();
 		PreviousButton.setBounds(20, 10, 50, 50);
-		
+		PreviousButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		ImageIcon prevIcon = getIcon("previous_button");
 		PreviousButton.setIcon(prevIcon);
 		PreviousButton.setContentAreaFilled(false);
 		
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				SetPreviousQuestion();
 			}
 		});
 		
@@ -48,7 +48,8 @@ public class BottomPanel  extends JPanel{
 	
 		NextButton = new JButton(">");
 		NextButton.setBounds(520, 10, 50, 50);
-		
+		NextButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		ImageIcon nextIcon = getIcon("next_button");
 		NextButton.setIcon(nextIcon);
 		NextButton.setContentAreaFilled(false);
@@ -61,7 +62,8 @@ public class BottomPanel  extends JPanel{
 		
 		YesButton = new JButton("OK");
 		YesButton.setBounds(600, 10, 80, 50);
-		
+		YesButton.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
 		YesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CurrentHintQuestion.IsAnswered = true;
@@ -107,6 +109,30 @@ public class BottomPanel  extends JPanel{
 		UpdateLabelText() ;
 	}
 	
+		
+		private void SetPreviousQuestion() {
+			
+			int previousIndex = CurrentHintQuestion.Index;
+			
+			for(int i= 0; i < 4; i++) {
+				
+				previousIndex -= 1;
+				
+				if(previousIndex < 0) {
+					previousIndex = 3;
+				}
+				
+				if(GameBoard.HINT_QUESTIONS[previousIndex].IsAnswered == false) {
+					CurrentHintQuestion = GameBoard.HINT_QUESTIONS[previousIndex];
+					break;
+				}
+			}
+			
+			UpdateLabelText() ;
+		}
+		
+		
+		
 	private ImageIcon getIcon(String name) {
 		ImageIcon icon = new ImageIcon(getImage(name));
 		

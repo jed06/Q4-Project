@@ -101,7 +101,7 @@ public class GuessWhoFrame extends JFrame {
 		JLabel l = new JLabel("      PLEASE CHOOSE A CHARACTER TO GUESS!!!");
 		
 		JButton b = new JButton("OK");
-
+		b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				d.setVisible(false);
