@@ -107,7 +107,7 @@ public class GuessWhoFrame extends JFrame {
 				d.setVisible(false);
 				}
 			}
-		);
+		);//nhtngh
 
 		p.add(l, BorderLayout.CENTER);
 		p.add(b, BorderLayout.SOUTH);
