@@ -59,4 +59,15 @@ public class GameBoard {
 			new HintQuestion("Is the character wearing a hat/headband?", false, false, false, true, 3),
 			
 	};
+	
+	
+public static final HintQuestion[] COMPUTER_HINT_QUESTIONS = {
+			
+			new HintQuestion("Is the character wearing jewelery?", true, false, false, false, 0),
+			new HintQuestion("Does the character have facial hair?", false, true, false, false, 1),
+			new HintQuestion("Is the character wearing Glasses?", false, false, true,  false, 2 ),
+			new HintQuestion("Is the character wearing a hat/headband?", false, false, false, true, 3),
+			
+	};
+	
 }

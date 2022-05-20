@@ -27,11 +27,12 @@ public class GuessWhoFrame extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rightPanel = new RightPanel();
 		add(rightPanel);
+		rightPanel.setOpaque(true);
 		bottomPanel = new BottomPanel(this);
 		add(bottomPanel);
 		
 		JPanel p = new JPanel();
-		p.setBackground(Color.YELLOW);
+		p.setOpaque(true);
 		p.setBounds(0, 0, 750, 600);
 		// p.setPreferredSize(new Dimension(800, 600));
 		// p.setSize(new Dimension(800, 600));
@@ -45,7 +46,7 @@ public class GuessWhoFrame extends JFrame {
 		
 		JPanel p3 = new JPanel();
 		p3.setBounds(750, 600, 250, 100);
-		p3.setBackground(Color.RED);
+		p3.setOpaque(true);
 		// p3.setSize(new Dimension(100, 100));
 		add(p3);
 
@@ -98,10 +99,10 @@ public class GuessWhoFrame extends JFrame {
 		p.setLayout(new BorderLayout());
 		// create a button
 
-		JLabel l = new JLabel("      PLEASE CHOOSE A CHARACTER TO GUESS!!!");
+		JLabel l = new JLabel("      PLEASE CHOOSE A CHARACTER FOR THE COMPUTER TO GUESS!!!");
 		
 		JButton b = new JButton("OK");
-
+		b.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				d.setVisible(false);
@@ -116,7 +117,7 @@ public class GuessWhoFrame extends JFrame {
 		
 		d.add(p);
 		
-		// setsize of dialog
+		// set size of dialog
 		d.setSize(300, 150);
 		d.setLocation(300,300);
 		// set visibility of dialog
@@ -168,7 +169,7 @@ public class GuessWhoFrame extends JFrame {
 			
 			d.add(p);
 			
-			// setsize of dialog
+			// set size of dialog
 			d.setSize(300, 150);
 			d.setLocation(300,300);
 			// set visibility of dialog
@@ -182,10 +183,10 @@ public class GuessWhoFrame extends JFrame {
 		
 		for(int i= 0; i < 4; i++) {
 			nextIndex += 1;
-			nextIndex = nextIndex % GameBoard.HINT_QUESTIONS.length;
+			nextIndex = nextIndex % GameBoard.COMPUTER_HINT_QUESTIONS.length;
 			
-			if(GameBoard.HINT_QUESTIONS[nextIndex].IsAnswered == false) {
-				CCHintQuestion = GameBoard.HINT_QUESTIONS[nextIndex];
+			if(GameBoard.COMPUTER_HINT_QUESTIONS[nextIndex].IsAnswered == false) {
+				CCHintQuestion = GameBoard.COMPUTER_HINT_QUESTIONS[nextIndex];
 				CCHintQuestion.IsAnswered = true;
 				break;
 			}

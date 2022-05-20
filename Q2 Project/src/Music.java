@@ -1,5 +1,3 @@
-
-
 import java.io.File;
 import java.io.IOException;
 
@@ -28,7 +26,7 @@ public class Music  implements Runnable  {
 	        audioClip = (Clip) AudioSystem.getLine(info);
 	        
 	        if(loops) {
-	        	audioClip.loop(audioClip.LOOP_CONTINUOUSLY);;
+	        	audioClip.loop(Clip.LOOP_CONTINUOUSLY);
 	        }	        
 	        audioClip.open(audioStream);
 	        //audioClip.start();

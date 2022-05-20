@@ -35,7 +35,7 @@ public class PictureCard extends Card {
 		setHorizontalAlignment(SwingConstants.CENTER);
 		setVerticalAlignment(SwingConstants.CENTER);
 
-	}
+	}                        
 
 	private Image getXImage() {
 		// Image tempImage = null;

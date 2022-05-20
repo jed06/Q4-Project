@@ -43,7 +43,7 @@ public class Picture extends JPanel  implements ActionListener {
 		tx.scale(sx, sy);	
 		this.setBounds(x, y, 100, 100);
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		this.setBackground(Color.cyan);
+		this.setOpaque(true);
 		
 	}
 

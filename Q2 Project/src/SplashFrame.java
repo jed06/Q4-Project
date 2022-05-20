@@ -28,7 +28,9 @@ import javax.swing.*;
 
 
 public class SplashFrame extends JPanel implements ActionListener, KeyListener{
-
+	
+	
+	Music song = new Music("PeppaSound.wav", true);
 	Picture bg 	= new Picture("images.png", 0, 0, 4.5, 4.5);
 	
 	Picture guess = new Picture("GameTitle.png",120, 0, 1.0, 1.0);
@@ -89,7 +91,8 @@ public class SplashFrame extends JPanel implements ActionListener, KeyListener{
 		if(arg0.getKeyCode()==10) {
 			f.setVisible(false);
 						
-			GuessWhoFrame gui = new GuessWhoFrame();			
+			GuessWhoFrame gui = new GuessWhoFrame();		
+			song.play();
 		}	
 	}
 

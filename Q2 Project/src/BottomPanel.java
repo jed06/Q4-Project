@@ -21,15 +21,14 @@ public class BottomPanel  extends JPanel{
 		setLayout(null);
 		
 		setBounds(0, 600, 750, 150);
-		setBackground(Color.LIGHT_GRAY);
-		
+		setOpaque(true);		
 		PreviousButton = new JButton();
 		PreviousButton.setBounds(20, 10, 50, 50);
 		
 		ImageIcon prevIcon = getIcon("previous_button");
 		PreviousButton.setIcon(prevIcon);
 		PreviousButton.setContentAreaFilled(false);
-		
+		PreviousButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		PreviousButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			SetPreviousQuestion();	
@@ -48,7 +47,7 @@ public class BottomPanel  extends JPanel{
 	
 		NextButton = new JButton(">");
 		NextButton.setBounds(520, 10, 50, 50);
-		
+		NextButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		ImageIcon nextIcon = getIcon("next_button");
 		NextButton.setIcon(nextIcon);
 		NextButton.setContentAreaFilled(false);
@@ -59,30 +58,30 @@ public class BottomPanel  extends JPanel{
 			}
 		});
 		
-		YesButton = new JButton("OK");
+		YesButton = new JButton("Confirm");
 		YesButton.setBounds(600, 10, 80, 50);
-		
+		YesButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		YesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				CurrentHintQuestion.IsAnswered = true;
 				if(CurrentHintQuestion.HasJewelry) {
-					UpdateLabelText() ;
+					UpdateLabelText();
 					container.SetJewelrySelected();
 				}
 				else if(CurrentHintQuestion.HasHair) {
-					UpdateLabelText() ;
+					UpdateLabelText();
 					container.SetHairSelected();
 				}
 				else if(CurrentHintQuestion.HasGlasses) {
-					UpdateLabelText() ;
+					UpdateLabelText();
 					container.SetGlassesSelected();
 				}
 				else if(CurrentHintQuestion.HasHat) {
-					UpdateLabelText() ;
+					UpdateLabelText();
 					container.SetHatSelected();
 				}
 				
-				//container.showComputerQuestionDialog();
+				container.showComputerQuestionDialog();
 			}
 		});
 		
@@ -109,21 +108,23 @@ public class BottomPanel  extends JPanel{
 	
 	private void SetPreviousQuestion() {
 		int previousIndex = CurrentHintQuestion.Index;
-			
+		
 		for(int i= 0; i < 4; i++) {
+			
 			previousIndex -= 1;
-			if(CurrentHintQuestion.Index == 0) {
+			
+			if(previousIndex < 0) {
 				previousIndex = 3;
 			}
-		
+			
 			if(GameBoard.HINT_QUESTIONS[previousIndex].IsAnswered == false) {
 				CurrentHintQuestion = GameBoard.HINT_QUESTIONS[previousIndex];
 				break;
 			}
 		}
-			
+		
 		UpdateLabelText() ;
-		}
+	}
 	
 	
 	private ImageIcon getIcon(String name) {

@@ -11,12 +11,12 @@ public class RightPanel extends JPanel {
 	public RightPanel() {
 		setLayout(new GridLayout(3, 1));
 		setBounds(750, 0, 250, 600);
-		setBackground(Color.GREEN);
+		setOpaque(true);
 
 		add(UserselectedCard);
 		add(ComputerselectedCard);
 		//add(new JLabel("Middle"));
-		add(new JLabel("Bottom"));
+		//add(new JLabel("Bottom"));
 
 	}
 

@@ -66,7 +66,7 @@ public class Deck extends JPanel {
 		
 		for (int i = 0; i < GameBoard.BOARD_SIZE; i++) {
 
-			if (i % 4 == 0) {
+			/*if (i % 4 == 0) {
 				x = 50;
 			} else {
 				x = x + 140 + 10;
@@ -76,7 +76,27 @@ public class Deck extends JPanel {
 				y = 20;
 			} else {
 				y = (i / 4 * 140) + 20;
+			}*/
+			
+			
+			int result = i%4;
+			switch(result) {
+				case 0 :
+					x = 50;
+					break;
+			default :
+				x = x + 140 + 10;
 			}
+
+			int result2 = i/4;
+			switch(result2) {
+				case 0 :
+					y = 20;
+					break;
+			default :
+				y = (i / 4 * 140) + 20;
+			}
+			
 			
 			Card cardData = GameBoard.cards[i];
 			
