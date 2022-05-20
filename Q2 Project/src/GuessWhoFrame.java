@@ -99,7 +99,8 @@ public class GuessWhoFrame extends JFrame {
 		p.setLayout(new BorderLayout());
 		// create a button
 
-		JLabel l = new JLabel("      PLEASE CHOOSE A CHARACTER FOR THE COMPUTER TO GUESS!!!");
+		JLabel l = new JLabel("Please choose a character for the computer to guess");
+		
 		
 		JButton b = new JButton("OK");
 		b.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -111,6 +112,7 @@ public class GuessWhoFrame extends JFrame {
 		);
 
 		p.add(l, BorderLayout.CENTER);
+		
 		p.add(b, BorderLayout.SOUTH);
 
 		// add panel to dialog

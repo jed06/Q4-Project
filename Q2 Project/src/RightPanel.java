@@ -42,7 +42,7 @@ public class RightPanel extends JPanel {
 		ComputerselectedCard.setHat(card.getHat());
 		ComputerselectedCard.setIndex(card.getIndex());
 		
-		ComputerselectedCard.SetImage(card.getImgURL());
+		ComputerselectedCard.SetImage("MysteryBox");
 		
 		
 	}
