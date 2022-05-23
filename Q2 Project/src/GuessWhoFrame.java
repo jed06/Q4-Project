@@ -60,7 +60,6 @@ public class GuessWhoFrame extends JFrame {
 		setSize(new Dimension(1000, 750));
 		setVisible(true);
 		BGPanel bg = new BGPanel();
-		
 		add(bg);
 		
 
