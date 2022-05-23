@@ -25,15 +25,20 @@ public class GuessWhoFrame extends JFrame {
 
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		rightPanel = new RightPanel();
+ 		rightPanel.setOpaque(true);
 		add(rightPanel);
-		rightPanel.setOpaque(true);
+
 		bottomPanel = new BottomPanel(this);
 		add(bottomPanel);
 		
 		JPanel p = new JPanel();
 		p.setOpaque(true);
 		p.setBounds(0, 0, 750, 600);
+		
+		
+		
 		// p.setPreferredSize(new Dimension(800, 600));
 		// p.setSize(new Dimension(800, 600));
 		deck = new Deck(this);
@@ -42,7 +47,6 @@ public class GuessWhoFrame extends JFrame {
 
 		add(p);
 
-		
 		
 		JPanel p3 = new JPanel();
 		p3.setBounds(750, 600, 250, 100);
@@ -55,6 +59,10 @@ public class GuessWhoFrame extends JFrame {
 		// this.setContentPane(p);
 		setSize(new Dimension(1000, 750));
 		setVisible(true);
+		BGPanel bg = new BGPanel();
+		
+		add(bg);
+		
 
 		ShowGuessDialog();
 	}

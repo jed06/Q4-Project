@@ -88,7 +88,7 @@ public class Picture extends JPanel  implements ActionListener {
 		g2.drawImage(img, tx, null);
 		
 		setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-		setBackground(Color.cyan);
+		/*setBackground(Color.cyan);*/
 	
 	}
  

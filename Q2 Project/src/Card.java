@@ -30,7 +30,7 @@ public class Card extends JButton {
 	private int index;
 	
 	public Card() {
-		this.setBackground(Color.CYAN);
+		this.setContentAreaFilled(false);
 		this.imgURL = "";
 		this.name = "";
 	}

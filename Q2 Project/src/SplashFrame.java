@@ -91,7 +91,7 @@ public class SplashFrame extends JPanel implements ActionListener, KeyListener{
 		if(arg0.getKeyCode()==10) {
 			f.setVisible(false);
 						
-			GuessWhoFrame gui = new GuessWhoFrame();		
+			InstructionFrame gui = new InstructionFrame();		
 			song.play();
 		}	
 	}

@@ -94,6 +94,7 @@ public class WinningFrame extends JPanel implements ActionListener, KeyListener{
 		// TODO Auto-generated method stub
 		if(arg0.getKeyCode()==16) {
 			SplashFrame gui = new SplashFrame();
+			f.setVisible(false);
 		}
 	}
 
