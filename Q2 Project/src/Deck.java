@@ -66,17 +66,6 @@ public class Deck extends JPanel {
 		
 		for (int i = 0; i < GameBoard.BOARD_SIZE; i++) {
 
-			/*if (i % 4 == 0) {
-				x = 50;
-			} else {
-				x = x + 140 + 10;
-			}
-
-			if (i / 4 == 0) {
-				y = 20;
-			} else {
-				y = (i / 4 * 140) + 20;
-			}*/
 			
 			
 			int result = i%4;

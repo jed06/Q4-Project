@@ -1,6 +1,5 @@
 import java.awt.Color;
 import java.awt.GridLayout;
-
 import javax.swing.*;
 
 public class BGPanel extends JPanel {
@@ -10,10 +9,9 @@ public class BGPanel extends JPanel {
 	
 	public BGPanel() {
 		
-		setBounds(0, 0, 750, 600);
-		
-
-		add(bg);
+		setLayout(null);
+		setBounds(0, 600, 750, 150);
+		setBackground(Color.red);
 		
 
 	}	
