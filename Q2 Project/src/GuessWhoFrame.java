@@ -22,6 +22,7 @@ public class GuessWhoFrame extends JFrame {
 	Deck deck;
 	HintQuestion CCHintQuestion = GameBoard.HINT_QUESTIONS[0];
 	JLabel QuestionLabel;
+	JButton GuessButton;
 	JFrame GuessWhoFrame = new JFrame(); 
 	public GuessWhoFrame() {
 		Color bgColor = new Color(202, 166, 221);
@@ -66,7 +67,9 @@ public class GuessWhoFrame extends JFrame {
 		JPanel p3 = new JPanel();
 		p3.setBounds(750, 600, 250, 100);
 		p3.setBackground(bgColor);
-		add(p3);
+		
+		
+		
 
 		pack();
 
@@ -75,6 +78,8 @@ public class GuessWhoFrame extends JFrame {
 		
 
 		ShowGuessDialog();
+		updateScreen();
+	
 	}
 
 	public void SetJewelrySelected() {
@@ -215,5 +220,10 @@ public class GuessWhoFrame extends JFrame {
 		return CCHintQuestion.Text;
 	}
 
-	
+	public void updateScreen() {
+		if(deck.getnumXout() == 15) {
+			LosingFrame gui = new LosingFrame();
+		}
+		
+	}
 }

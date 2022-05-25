@@ -40,10 +40,13 @@ public class Deck extends JPanel {
 	private boolean isHatSelected;
 	
 	private List<PictureCard> cards = new ArrayList();
-
+	
+	public int numXout = 0;
+	
 	public Deck(GuessWhoFrame container) {
 		Container = container;
 		this.setLayout(null);
+		this.setLocation(0, 0);
 		this.setPreferredSize(new Dimension(800, 600));
 		int x = 0, y = 0;
 
@@ -71,7 +74,7 @@ public class Deck extends JPanel {
 			int result = i%4;
 			switch(result) {
 				case 0 :
-					x = 50;
+					x = 0;
 					break;
 			default :
 				x = x + 140 + 10;
@@ -131,6 +134,8 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(!pc.getJewelry()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}
@@ -138,6 +143,8 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(pc.getJewelry()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}
@@ -148,6 +155,8 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(!pc.getFacialHair()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}
@@ -155,10 +164,13 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(pc.getFacialHair()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}
 	}
+	
 	
 	public void SetGlassesSelected() {
 		//isGlassesSelected = true;
@@ -166,6 +178,8 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(!pc.getGlasses()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}
@@ -173,6 +187,8 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(pc.getGlasses()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}
@@ -185,6 +201,8 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(!pc.getHat()) {
 					pc.SetXImage();
+					numXout += 1;
+					getnumXout();
 				}
 			}
 		}	
@@ -194,9 +212,16 @@ public class Deck extends JPanel {
 		for (PictureCard pc : cards) {
 			if(pc.getHat()) {
 				pc.SetXImage();
+				numXout += 1;
+				getnumXout();
 			}
 		}
 	}
 	}
+	public int getnumXout() {
+		System.out.println(numXout);
+		return numXout;
+	}
+	
 
 }

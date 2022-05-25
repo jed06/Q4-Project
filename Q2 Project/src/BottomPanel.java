@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 public class BottomPanel  extends JPanel{
 	
-	JButton PreviousButton, NextButton, YesButton;
+	JButton PreviousButton, NextButton, YesButton, GuessButton;
 	JLabel QuestionLabel;	
 	HintQuestion CurrentHintQuestion = GameBoard.HINT_QUESTIONS[0];
 	
@@ -20,7 +20,7 @@ public class BottomPanel  extends JPanel{
 		
 		setLayout(null);
 		
-		setBounds(0, 600, 750, 150);
+		setBounds(0, 600, 950, 150);
 		setOpaque(true);		
 		PreviousButton = new JButton();
 		PreviousButton.setBounds(20, 10, 50, 50);
@@ -84,11 +84,24 @@ public class BottomPanel  extends JPanel{
 				container.showComputerQuestionDialog();
 			}
 		});
+		GuessButton = new JButton("GUESS");
+		GuessButton.setBounds(830,10,80,50);
+		GuessButton.setBackground(Color.pink);
+		GuessButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(GuessButton.isEnabled()){
+					System.out.println("GuessButton is pressed");
+					}
+				}
+			});
+		
+		
 		
 		this.add(PreviousButton);
 		this.add(QuestionLabel);
 		this.add(NextButton);
-		this.add(YesButton);		
+		this.add(YesButton);	
+		this.add(GuessButton);
 	}
 	private void SetNextQuestion() {
 	int nextIndex = CurrentHintQuestion.Index;
