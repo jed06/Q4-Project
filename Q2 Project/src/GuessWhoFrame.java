@@ -1,22 +1,21 @@
-import java.util.*;
-import java.awt.BorderLayout;
+ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import javax.swing.WindowConstants;
 
 
 
-public class GuessWhoFrame extends JFrame {
+public class GuessWhoFrame extends JFrame implements ActionListener {
 	RightPanel rightPanel;
 	BottomPanel bottomPanel;
 	Deck deck;
@@ -24,13 +23,12 @@ public class GuessWhoFrame extends JFrame {
 	JLabel QuestionLabel;
 	JButton GuessButton;
 	JFrame GuessWhoFrame = new JFrame(); 
+	Timer t = new Timer(1000, this);		
+
 	public GuessWhoFrame() {
 		Color bgColor = new Color(202, 166, 221);
 		GuessWhoFrame.setUndecorated(true);
 		GuessWhoFrame.setBackground(bgColor);
-		
-		
-		
 		
 		
 		setResizable(false);
@@ -70,7 +68,7 @@ public class GuessWhoFrame extends JFrame {
 		
 		
 		
-
+	
 		pack();
 
 		setSize(new Dimension(1000, 750));
@@ -130,6 +128,8 @@ public class GuessWhoFrame extends JFrame {
 		b.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				d.setVisible(false);
+				t.start();
+				System.out.println("Timer on");
 				}
 			}
 		);
@@ -225,5 +225,12 @@ public class GuessWhoFrame extends JFrame {
 			LosingFrame gui = new LosingFrame();
 		}
 		
+	}
+	int time = 0;
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		time++;
+		System.out.println(time);
 	}
 }
