@@ -64,7 +64,7 @@ public class PictureCard extends Card {
 			g.drawImage(overlay, 0, 0, null);
 			
 
-			g.dispose();
+			//g.dispose();
 
 		} catch (Exception e) {
 			e.printStackTrace();

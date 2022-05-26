@@ -13,7 +13,7 @@ public class RightPanel extends JPanel {
 		setBounds(750, 0, 250, 600);
 		setOpaque(true);
 
-		add(UserselectedCard);
+		//add(UserselectedCard);
 		add(ComputerselectedCard);
 		//add(new JLabel("Middle"));
 		//add(new JLabel("Bottom"));

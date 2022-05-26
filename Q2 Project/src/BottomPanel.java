@@ -81,12 +81,13 @@ public class BottomPanel  extends JPanel{
 					container.SetHatSelected();
 				}
 				
-				container.showComputerQuestionDialog();
+				//container.showComputerQuestionDialog();
 			}
 		});
 		GuessButton = new JButton("GUESS");
 		GuessButton.setBounds(830,10,80,50);
-		GuessButton.setBackground(Color.pink);
+		GuessButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		GuessButton.setBackground(new Color(243, 118, 150));
 		GuessButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(GuessButton.isEnabled()){
@@ -106,7 +107,7 @@ public class BottomPanel  extends JPanel{
 	private void SetNextQuestion() {
 	int nextIndex = CurrentHintQuestion.Index;
 		
-	for(int i= 0; i < 4; i++) {
+	for(int i= 0; i < 9; i++) {
 		nextIndex += 1;
 		nextIndex = nextIndex % GameBoard.HINT_QUESTIONS.length;
 			
@@ -122,12 +123,12 @@ public class BottomPanel  extends JPanel{
 	private void SetPreviousQuestion() {
 		int previousIndex = CurrentHintQuestion.Index;
 		
-		for(int i= 0; i < 4; i++) {
+		for(int i= 0; i < 9; i++) {
 			
 			previousIndex -= 1;
 			
 			if(previousIndex < 0) {
-				previousIndex = 3;
+				previousIndex = 8;
 			}
 			
 			if(GameBoard.HINT_QUESTIONS[previousIndex].IsAnswered == false) {

@@ -52,22 +52,19 @@ public class GameBoard {
 	 */
 
 	public static final HintQuestion[] HINT_QUESTIONS = {
-			
-			new HintQuestion("Is the character wearing jewelery?", true, false, false, false, 0),
-			new HintQuestion("Does the character have facial hair?", false, true, false, false, 1),
-			new HintQuestion("Is the character wearing Glasses?", false, false, true,  false, 2 ),
-			new HintQuestion("Is the character wearing a hat/headband?", false, false, false, true, 3),
+			new HintQuestion("Is water wet?", false, false, false, false, 0),
+			new HintQuestion("Am I wearing jewelery?", true, false, false, false, 1),
+			new HintQuestion("Is the sky blue?", false, false, false, false, 2),
+			new HintQuestion("Do I have facial hair?", false, true, false, false, 3),
+			new HintQuestion("Which came first: chicken or egg?", false, false, false, false, 4),
+			new HintQuestion("Am I wearing Glasses?", false, false, true,  false, 5),
+			new HintQuestion("Is the sky blue?", false, false, false, false, 6),
+			new HintQuestion("Am I wearing a hat/headband?", false, false, false, true, 7),
+			new HintQuestion("Do alternate universes exist?", false, false, false, false, 8),
+
 			
 	};
 	
 	
-public static final HintQuestion[] COMPUTER_HINT_QUESTIONS = {
-			
-			new HintQuestion("Is the character wearing jewelery?", true, false, false, false, 0),
-			new HintQuestion("Does the character have facial hair?", false, true, false, false, 1),
-			new HintQuestion("Is the character wearing Glasses?", false, false, true,  false, 2 ),
-			new HintQuestion("Is the character wearing a hat/headband?", false, false, false, true, 3),
-			
-	};
 	
 }

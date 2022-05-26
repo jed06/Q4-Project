@@ -38,7 +38,7 @@ public class Card extends JButton {
 	public Card(String name, String imgURL, boolean hasJewelry, boolean hasHair, boolean hasGlasses, boolean hasHat,
 			int index) {
 		// this.setText(name);
-		this.setBackground(new Color(224, 164, 186));
+		this.setBackground(new Color(240, 135, 162));
 		this.name = name;
 		this.hasJewelry = hasJewelry;
 		this.hasHair = hasHair;

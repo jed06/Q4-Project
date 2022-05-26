@@ -117,12 +117,12 @@ public class GuessWhoFrame extends JFrame {
 		d.setUndecorated(true);
 		JPanel p = new JPanel();
 		
-		p.setBackground(Color.PINK);
+		p.setBackground(new Color(243, 118, 150));
 
 		p.setLayout(new BorderLayout());
 		// create a button
 
-		JLabel l = new JLabel("Please choose a character for the computer to guess");
+		JLabel l = new JLabel(" Please choose a character for the computer to guess");
 		
 		
 		JButton b = new JButton("OK");
@@ -143,7 +143,7 @@ public class GuessWhoFrame extends JFrame {
 		d.add(p);
 		
 		// set size of dialog
-		d.setSize(300, 150);
+		d.setSize(310, 150);
 		d.setLocation(300,300);
 		// set visibility of dialog
 		d.setVisible(true);
@@ -151,7 +151,7 @@ public class GuessWhoFrame extends JFrame {
 	}
 
 
-	public void showComputerQuestionDialog() {
+/*	public void showComputerQuestionDialog() {
 		
 		JDialog d = new JDialog(this);
 		d.setResizable(false);
@@ -201,9 +201,9 @@ public class GuessWhoFrame extends JFrame {
 			d.setVisible(true);
 
 		
-	}
+	}*/
 	
-	private String getNextQuestion() {
+	/*private String getNextQuestion() {
 		int nextIndex = CCHintQuestion.Index;
 		
 		for(int i= 0; i < 4; i++) {
@@ -218,7 +218,7 @@ public class GuessWhoFrame extends JFrame {
 		}
 		
 		return CCHintQuestion.Text;
-	}
+	}*/
 
 	public void updateScreen() {
 		if(deck.getnumXout() == 15) {
