@@ -5,7 +5,7 @@ import javax.swing.*;
 
 public class RightPanel extends JPanel {
 
-	PictureCard UserselectedCard = new PictureCard();
+	//PictureCard UserselectedCard = new PictureCard();
 	PictureCard ComputerselectedCard = new PictureCard();
 	
 	public RightPanel() {
@@ -15,23 +15,23 @@ public class RightPanel extends JPanel {
 
 		//add(UserselectedCard);
 		add(ComputerselectedCard);
-		//add(new JLabel("Middle"));
-		//add(new JLabel("Bottom"));
-
+		
 	}
 
-	public void SetUserSelectedPicture(PictureCard card) {
-		
-		UserselectedCard.setName(card.getName());
-		UserselectedCard.setJewelry(card.getJewelry());
-		UserselectedCard.setFacialHair(card.getFacialHair());
-		UserselectedCard.setGlasses(card.getGlasses());
-		UserselectedCard.setHat(card.getHat());
-		UserselectedCard.setIndex(card.getIndex());
-		
-		UserselectedCard.SetImage(card.getImgURL());		
-	
-	}
+	/*
+	 * public void SetUserSelectedPicture(PictureCard card) {
+	 * 
+	 * UserselectedCard.setName(card.getName());
+	 * UserselectedCard.setJewelry(card.getJewelry());
+	 * UserselectedCard.setFacialHair(card.getFacialHair());
+	 * UserselectedCard.setGlasses(card.getGlasses());
+	 * UserselectedCard.setHat(card.getHat());
+	 * UserselectedCard.setIndex(card.getIndex());
+	 * 
+	 * UserselectedCard.SetImage(card.getImgURL());
+	 * 
+	 * }
+	 */
  
 	public void SetComputerSelectedPicture(PictureCard card) {
 
@@ -46,4 +46,10 @@ public class RightPanel extends JPanel {
 		
 		
 	}
+	
+	public PictureCard getComputerSelectedCard() {
+		return ComputerselectedCard;
+		
+	}
+	
 }

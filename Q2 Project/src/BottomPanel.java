@@ -16,6 +16,7 @@ public class BottomPanel  extends JPanel{
 	GuessWhoFrame Container;
 	
 	public BottomPanel(GuessWhoFrame container) {
+		Container = container;
 		int x = 20;
 		
 		setLayout(null);
@@ -92,6 +93,16 @@ public class BottomPanel  extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				if(GuessButton.isEnabled()){
 					System.out.println("GuessButton is pressed");
+					PictureCard csc = container.getComputerSelectedCard();
+					PictureCard usc = container.GetUserSelectedCard();
+					if (csc.getName() == usc.getName()) {
+						container.setVisible(false);   
+			            WinningFrame gui = new WinningFrame();
+					}
+					else {
+						container.setVisible(false);   
+			            WinningFrame gui = new WinningFrame();
+					}
 					}
 				}
 			});

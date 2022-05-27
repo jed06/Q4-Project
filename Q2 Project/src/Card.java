@@ -48,6 +48,11 @@ public class Card extends JButton {
 		this.index = index;
 	}
 
+	public void changebg(Color c) {
+		this.setBackground(c);
+	}
+	
+	
 	public void printInfo() {
 		System.out.println("name" + "," + "imgURL" + "," + "hasJewelry" + "," + "hasHair" + "," + "hasGlasses" + ","
 				+ "hasHat" + "," + "index");

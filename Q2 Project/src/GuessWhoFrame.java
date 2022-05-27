@@ -24,7 +24,8 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	JButton GuessButton;
 	JFrame GuessWhoFrame = new JFrame(); 
 	Timer t = new Timer(1000, this);		
-
+	private PictureCard UserSelectedCard = new PictureCard();
+	
 	public GuessWhoFrame() {
 		Color bgColor = new Color(202, 166, 221);
 		GuessWhoFrame.setUndecorated(true);
@@ -46,17 +47,10 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		p.setBackground(bgColor);
 		p.setBounds(0, 0, 750, 600);
 		
-		
-		
-		
 		deck = new Deck(this);
-		
-		
-		
-		
+	
 		deck.setBackground(bgColor);
-		
-		
+	
 		p.add(deck);
 
 		add(p);
@@ -75,7 +69,7 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		setVisible(true);
 		
 
-		ShowGuessDialog();
+		//ShowGuessDialog();
 		updateScreen();
 	
 	}
@@ -97,58 +91,57 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	public void SetComputerSelectedCard(PictureCard card)
 	{
 		rightPanel.SetComputerSelectedPicture(card);
-		System.out.println(card.getName());
+		System.out.println("Mystery Character: "+ card.getName());
 		//Add method on Right Panel to Set Computer Selected card
 	}
-	
+	public PictureCard getComputerSelectedCard() {
+		return rightPanel.ComputerselectedCard;	
+	}
 	public void SetUserSelectedCard(PictureCard card) {
-		rightPanel.SetUserSelectedPicture(card);
+		UserSelectedCard = card;
 		System.out.println(card.getName());
 
 	}
-
-	private void ShowGuessDialog() {
-		JDialog d = new JDialog(this, "");
-		d.setResizable(false);
-		d.setModal(true);
-		d.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		d.setUndecorated(true);
-		JPanel p = new JPanel();
+	
+	public PictureCard GetUserSelectedCard() {
+		return UserSelectedCard;
 		
-		p.setBackground(new Color(243, 118, 150));
-
-		p.setLayout(new BorderLayout());
-		// create a button
-
-		JLabel l = new JLabel(" Please choose a character for the computer to guess");
-		
-		
-		JButton b = new JButton("OK");
-		b.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		b.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				d.setVisible(false);
-				t.start();
-				System.out.println("Timer on");
-				}
-			}
-		);
-
-		p.add(l, BorderLayout.CENTER);
-		
-		p.add(b, BorderLayout.SOUTH);
-
-		// add panel to dialog
-		
-		d.add(p);
-		
-		// set size of dialog
-		d.setSize(310, 150);
-		d.setLocation(300,300);
-		// set visibility of dialog
-		d.setVisible(true);
 
 	}
+	
+
+	/*
+	 * private void ShowGuessDialog() { JDialog d = new JDialog(this, "");
+	 * d.setResizable(false); d.setModal(true);
+	 * d.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
+	 * d.setUndecorated(true); JPanel p = new JPanel();
+	 * 
+	 * p.setBackground(new Color(243, 118, 150));
+	 * 
+	 * p.setLayout(new BorderLayout()); // create a button
+	 * 
+	 * JLabel l = new
+	 * JLabel(" Please choose a character for the computer to guess");
+	 * 
+	 * 
+	 * JButton b = new JButton("OK"); b.setCursor(new Cursor(Cursor.HAND_CURSOR));
+	 * b.addActionListener(new ActionListener() { public void
+	 * actionPerformed(ActionEvent e) { d.setVisible(false); t.start();
+	 * System.out.println("Timer on"); } } );
+	 * 
+	 * p.add(l, BorderLayout.CENTER);
+	 * 
+	 * p.add(b, BorderLayout.SOUTH);
+	 * 
+	 * // add panel to dialog
+	 * 
+	 * d.add(p);
+	 * 
+	 * // set size of dialog d.setSize(310, 150); d.setLocation(300,300); // set
+	 * visibility of dialog d.setVisible(true);
+	 * 
+	 * }
+	 */
 
 
 /*	public void showComputerQuestionDialog() {

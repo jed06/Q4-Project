@@ -107,15 +107,20 @@ public class Deck extends JPanel {
 
 			pc.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
-					if (UserSelectedCard == null) {
-							String name = ((Card)e.getSource()).getName();
-							for (PictureCard pc : cards) {
-						        if (pc.getName().equals(name)) {
-						            UserSelectedCard = pc;
-						            Container.SetUserSelectedCard(UserSelectedCard);
-						            break;
-						        }
+						String name = ((Card)e.getSource()).getName();
+						
+						for (PictureCard pc : cards) {
+						       if (pc.getName().equals(name)) {
+						           UserSelectedCard = pc;
+						           Container.SetUserSelectedCard(UserSelectedCard);
+						           pc.changebg(Color.WHITE);
+						           //break;
+						        
 						    }
+						       else {
+									pc.changebg(new Color(240, 135, 162));
+
+						       }
 					}
 				}
 			});
