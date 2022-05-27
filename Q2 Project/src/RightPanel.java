@@ -11,6 +11,7 @@ public class RightPanel extends JPanel {
 	PictureCard ComputerselectedCard = new PictureCard();
 	JLabel labelattemps = new JLabel("Attemps Left: 3");
 	JLabel finalGuess = new JLabel(" ");
+	static JLabel timer = new JLabel(" ");
 	
 	public RightPanel() {
 		setLayout(new GridLayout(3, 1));
@@ -18,12 +19,14 @@ public class RightPanel extends JPanel {
 		setOpaque(true);
 		//add(UserselectedCard);
 		add(ComputerselectedCard);
-		
 		labelattemps.setFont(new Font("Verdana", Font.PLAIN, 18));
 		add(labelattemps);
+		timer.setFont(new Font("Verdana", Font.PLAIN, 18));
+		timer.setBounds(750, 100, 180, 100);
+		add(timer);
 		finalGuess.setFont(new Font("Verdana", Font.PLAIN, 11));
 		finalGuess.setBounds(750, 0, 250, 200);
-		add(finalGuess);
+		//add(finalGuess);
 		
 		
 		
@@ -34,6 +37,9 @@ public class RightPanel extends JPanel {
 		if (num == 0) {
 			finalGuess.setText("Click on a character and press the guess button to make your final guess!");
 		}
+	}
+	public static void setTimer() {
+		timer.setText("Timer: " + GuessWhoFrame.getTime());
 	}
 	/*
 	 * public void SetUserSelectedPicture(PictureCard card) {

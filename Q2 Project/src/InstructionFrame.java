@@ -101,12 +101,6 @@ public class InstructionFrame extends JPanel implements ActionListener, KeyListe
 
         g.setFont(new Font ("Monospaced", Font.PLAIN, 40));
         g.drawString("\"",390, 340);
-
-
-
-
-
-
     }
 
     @Override
@@ -123,11 +117,12 @@ public class InstructionFrame extends JPanel implements ActionListener, KeyListe
         if(arg0.getKeyCode()==10) {
             f.setVisible(false);   
             GuessWhoFrame gui = new GuessWhoFrame();
+            
 
         }
     }
 
-
+    
     @Override
     public void keyTyped(KeyEvent e) {
         // TODO Auto-generated method stub

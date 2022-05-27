@@ -110,7 +110,7 @@ public class BottomPanel  extends JPanel{
 					}
 					else {
 						container.setVisible(false);   
-			            WinningFrame gui = new WinningFrame();
+			            LosingFrame gui = new LosingFrame();
 					}
 					}
 				}

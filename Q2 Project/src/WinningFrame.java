@@ -29,7 +29,7 @@ import javax.swing.*;
 
 public class WinningFrame extends JPanel implements ActionListener, KeyListener{
 	 
-	Picture bg 	= new Picture("winningScrren", 0, 0, 1.0, 1.0);
+	Picture bg 	= new Picture("winningScreen.png", 0, 0, 1.0, 1.0);
 	
 	JFrame f = new JFrame("Guess Peppa");
 	

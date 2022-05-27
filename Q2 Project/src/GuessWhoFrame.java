@@ -77,6 +77,9 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		setVisible(true);
 		//ShowGuessDialog();
 		updateScreen();
+		
+		
+		RightPanel.setTimer();
 		t.start();
 	}
 
@@ -219,15 +222,22 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	}*/
 
 	public void updateScreen() {
-		if(deck.getnumXout() == 15) {
-			LosingFrame gui = new LosingFrame();
-		}
+		 
 	}
-	int time = 0;
+	
+	static int time = 0;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		time++;
 		System.out.println(time);
+		if(time>10) {
+			t.stop();
+			LosingFrame gui = new LosingFrame();
+			this.setVisible(false);
+		}
+	}
+	public static int getTime() {
+		return time;
 	}
 }
