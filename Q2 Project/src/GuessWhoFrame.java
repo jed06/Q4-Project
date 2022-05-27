@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -29,6 +31,8 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	
 	public void setguessAttempted() {
 		numofAttempts+= 1;
+		if(numofAttempts == 3) {
+		}
 		rightPanel.setAttemps(numofAttempts);
 	}
 	
@@ -73,6 +77,7 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		setVisible(true);
 		//ShowGuessDialog();
 		updateScreen();
+		t.start();
 	}
 
 	public void SetJewelrySelected() {

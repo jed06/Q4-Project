@@ -32,7 +32,7 @@ public class RightPanel extends JPanel {
 		int num = 3- attempts;
 		labelattemps.setText("Attemps Left: " + num);
 		if (num == 0) {
-			finalGuess.setText("Click on a character and press \n the guess button to make your final guess!");
+			finalGuess.setText("Click on a character and press the guess button to make your final guess!");
 		}
 	}
 	/*
