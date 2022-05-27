@@ -59,11 +59,20 @@ public class BottomPanel  extends JPanel{
 			}
 		});
 		
-		YesButton = new JButton("Confirm");
+		YesButton = new JButton("Ask");
 		YesButton.setBounds(600, 10, 80, 50);
 		YesButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		YesButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+			System.out.println("num of attemps : " + container.getguessAttempted());
+				if (container.getguessAttempted() < 3) {
+					container.setguessAttempted();
+				}
+				if(container.getguessAttempted() == 3) {
+					
+					YesButton.setEnabled(false);
+				}
+				
 				CurrentHintQuestion.IsAnswered = true;
 				if(CurrentHintQuestion.HasJewelry) {
 					UpdateLabelText();

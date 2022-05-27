@@ -25,12 +25,21 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	JFrame GuessWhoFrame = new JFrame(); 
 	Timer t = new Timer(1000, this);		
 	private PictureCard UserSelectedCard = new PictureCard();
+	int numofAttempts = 0;
+	
+	public void setguessAttempted() {
+		numofAttempts+= 1;
+		rightPanel.setAttemps(numofAttempts);
+	}
+	
+	public int getguessAttempted() {
+		return numofAttempts;
+	}
 	
 	public GuessWhoFrame() {
 		Color bgColor = new Color(202, 166, 221);
 		GuessWhoFrame.setUndecorated(true);
 		GuessWhoFrame.setBackground(bgColor);
-		
 		
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,7 +48,6 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
  		rightPanel.setBackground(bgColor);
 		add(rightPanel);
 		
-
 		bottomPanel = new BottomPanel(this);
 		add(bottomPanel);
 		bottomPanel.setBackground(bgColor);
@@ -55,23 +63,16 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 
 		add(p);
 
-		
 		JPanel p3 = new JPanel();
 		p3.setBounds(750, 600, 250, 100);
 		p3.setBackground(bgColor);
 		
-		
-		
-	
 		pack();
 
 		setSize(new Dimension(1000, 750));
 		setVisible(true);
-		
-
 		//ShowGuessDialog();
 		updateScreen();
-	
 	}
 
 	public void SetJewelrySelected() {
@@ -108,7 +109,6 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		
 
 	}
-	
 
 	/*
 	 * private void ShowGuessDialog() { JDialog d = new JDialog(this, "");
@@ -217,7 +217,6 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		if(deck.getnumXout() == 15) {
 			LosingFrame gui = new LosingFrame();
 		}
-		
 	}
 	int time = 0;
 	@Override
