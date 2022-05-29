@@ -8,23 +8,19 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 public class BottomPanel  extends JPanel{
-	
 	JButton PreviousButton, NextButton, YesButton, GuessButton;
 	JLabel QuestionLabel;	
 	HintQuestion CurrentHintQuestion = GameBoard.HINT_QUESTIONS[0];
-	
 	GuessWhoFrame Container;
-	
 	public BottomPanel(GuessWhoFrame container) {
 		Container = container;
 		int x = 20;
-		
 		setLayout(null);
-		
 		setBounds(0, 600, 950, 150);
 		setOpaque(true);		
 		PreviousButton = new JButton();
-		PreviousButton.setBounds(20, 10, 50, 50);
+		PreviousButton.setBounds(20, 10, 55, 55);
+		PreviousButton.setBorderPainted(false);
 		
 		ImageIcon prevIcon = getIcon("previous_button");
 		PreviousButton.setIcon(prevIcon);
@@ -47,12 +43,12 @@ public class BottomPanel  extends JPanel{
 		
 	
 		NextButton = new JButton(">");
-		NextButton.setBounds(520, 10, 50, 50);
+		NextButton.setBounds(520, 10, 55, 55);
 		NextButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		ImageIcon nextIcon = getIcon("next_button");
 		NextButton.setIcon(nextIcon);
 		NextButton.setContentAreaFilled(false);
-		
+		NextButton.setBorderPainted(false);
 		NextButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				SetNextQuestion();
@@ -107,6 +103,7 @@ public class BottomPanel  extends JPanel{
 					if (csc.getName() == usc.getName()) {
 						container.setVisible(false);   
 			            WinningFrame gui = new WinningFrame();
+			            container.gameOver();
 					}
 					else {
 						container.setVisible(false);   
@@ -114,10 +111,7 @@ public class BottomPanel  extends JPanel{
 					}
 					}
 				}
-			});
-		
-		
-		
+			});		
 		this.add(PreviousButton);
 		this.add(QuestionLabel);
 		this.add(NextButton);
@@ -139,37 +133,28 @@ public class BottomPanel  extends JPanel{
 		
 	UpdateLabelText() ;
 	}
-	
 	private void SetPreviousQuestion() {
 		int previousIndex = CurrentHintQuestion.Index;
 		
-		for(int i= 0; i < 9; i++) {
-			
-			previousIndex -= 1;
-			
+		for(int i= 0; i < 9; i++) {			
+			previousIndex -= 1;			
 			if(previousIndex < 0) {
 				previousIndex = 8;
-			}
-			
+			}			
 			if(GameBoard.HINT_QUESTIONS[previousIndex].IsAnswered == false) {
 				CurrentHintQuestion = GameBoard.HINT_QUESTIONS[previousIndex];
 				break;
 			}
-		}
-		
+		}		
 		UpdateLabelText() ;
 	}
-	
-	
 	private ImageIcon getIcon(String name) {
 		ImageIcon icon = new ImageIcon(getImage(name));
-		
 		return icon;
 	}
 	private void UpdateLabelText() {
 		QuestionLabel.setText(CurrentHintQuestion.Text /*+ " " + CurrentHintQuestion.IsAnswered*/);
 	}
-	
 	private Image getImage(String name) {
 		Image tempImage = null;
 		try {

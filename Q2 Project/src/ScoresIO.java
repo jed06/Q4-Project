@@ -4,18 +4,19 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-public class Scores {
-	public static ArrayList <String> readScores(int numOfScores) {
-		ArrayList <String> sarray = new ArrayList <String>();
-	try {
+public class ScoresIO {	
+	public static ArrayList <Integer> readScores() {
+		ArrayList <Integer> sarray = new ArrayList <Integer>();
+		try {
 	      File myObj = new File("Scores.txt");
 	      Scanner myReader = new Scanner(myObj);
 	      while (myReader.hasNextLine()) {
 	        String data = myReader.nextLine();
-	        sarray.add(data);
+	        if (data != null && data != "" && data.length() > 0) {
+	        sarray.add(Integer.parseInt(data));
 	        System.out.println(data);
-	      }
+	        	}
+	        }
 	      myReader.close();
 	    } catch (FileNotFoundException e) {
 	      System.out.println("An error occurred.");
@@ -26,8 +27,9 @@ public class Scores {
 	}
 public static void addScore(int score) {
 	 try {
-	      FileWriter myWriter = new FileWriter("Scores.txt");
-	      myWriter.write(score);
+		 File myObj = new File("Scores.txt");
+	      FileWriter myWriter = new FileWriter(myObj, true);
+	      myWriter.append( score + "\n");
 	      myWriter.close();
 	      System.out.println("Successfully wrote to the file.");
 	    } catch (IOException e) {
@@ -35,5 +37,4 @@ public static void addScore(int score) {
 	      e.printStackTrace();
 	    }
 }
-
 }

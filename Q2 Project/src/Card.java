@@ -19,7 +19,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 
 public class Card extends JButton {
-
 	private String name;
 	private boolean hasJewelry;
 	private boolean hasHair;
@@ -27,17 +26,14 @@ public class Card extends JButton {
 	private boolean hasHat;
 	private int x, y;
 	private String imgURL;
-	private int index;
-	
+	private int index;	
 	public Card() {
 		this.setContentAreaFilled(false);
 		this.imgURL = "";
 		this.name = "";
 	}
-
 	public Card(String name, String imgURL, boolean hasJewelry, boolean hasHair, boolean hasGlasses, boolean hasHat,
 			int index) {
-		// this.setText(name);
 		this.setBackground(new Color(240, 135, 162));
 		this.name = name;
 		this.hasJewelry = hasJewelry;
@@ -47,67 +43,50 @@ public class Card extends JButton {
 		this.imgURL = imgURL;
 		this.index = index;
 	}
-
 	public void changebg(Color c) {
 		this.setBackground(c);
-	}
-	
-	
+	}		
 	public void printInfo() {
 		System.out.println("name" + "," + "imgURL" + "," + "hasJewelry" + "," + "hasHair" + "," + "hasGlasses" + ","
 				+ "hasHat" + "," + "index");
 	}
-
 	public String getImgURL() {
 		String url = imgURL.replace("%20", " ");
 		return url;
 	}
-
 	public void setName(String n) {
 		name = n;
 	}
-
 	public void setJewelry(boolean j) {
 		hasJewelry = j;
 	}
-
 	public void setFacialHair(boolean h) {
 		hasHair = h;
 	}
-
 	public void setGlasses(boolean g) {
 		hasGlasses = g;
 	}
-
 	public void setHat(boolean h) {
 		hasHat = h;
 	}
-
 	public void setIndex(int i) {
 		index = i;
-	}
-	
-	
+	}		
 	public String getName() {
 		return name;
 	}
-
 	public boolean getJewelry() {
 		return hasJewelry;
 	}
-
 	public boolean getFacialHair() {
 		return hasHair;
 	}
-
 	public boolean getGlasses() {
 		return hasGlasses;
 	}
-
 	public boolean getHat() {
 		return hasHat;
 	}
-
 	public int getIndex() {
 		return index;
 	}

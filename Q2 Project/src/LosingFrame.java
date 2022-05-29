@@ -16,7 +16,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.net.URL;
 import java.util.Random;
-
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -25,22 +24,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.*;   
-
-
 public class LosingFrame extends JPanel implements ActionListener, KeyListener{
-	 
 	Picture bg 	= new Picture("drawing.png", 0, 0, 1.0, 1.0);
-	
 	JFrame f = new JFrame("Guess Peppa");
-	
 	JButton backHome;
 	public LosingFrame() {
-		
 		backHome = new JButton("OK");
 		backHome.setBounds(10, 64, 10, 10);
-		
-		
-		
 		f.setSize(new Dimension(1000, 760));
 		f.setBackground(Color.blue);
 		f.add(this);
@@ -50,44 +40,28 @@ public class LosingFrame extends JPanel implements ActionListener, KeyListener{
 		Timer t = new Timer(16, this);
 		t.start();
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	    f.setVisible(true);   
-	    //f.add(backHome);
 	}
-	
-	
 	private ImageIcon getIcon(String string) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 	public void paint(Graphics g) {
 		//background before games begins
 		//ask the objects to paint themselves
 		
 		super.paintComponent(g);
 		bg.paint(g);
-//		guess.paint(g);
-//		who.paint(g);
-//		
-//		george.paint(g);
-//		cat.paint(g);
-//		racoon.paint(g);
-//		giraffe.paint(g);
-		
 		g.setColor(Color.black);
 		g.setFont(new Font ("Serif", Font.PLAIN, 30));
-		g.drawString("press shift to play again!", 620, 720);			
+		g.drawString("press shift to play again!", 620, 680);
+		g.drawString("press space to see scores!", 620, 710);
 	}
-	
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
 		repaint();
-		
 	}
-
 	@Override
 	public void keyPressed(KeyEvent arg0) {
 		System.out.println(arg0.getKeyCode());
@@ -96,20 +70,17 @@ public class LosingFrame extends JPanel implements ActionListener, KeyListener{
 			SplashFrame gui = new SplashFrame();
 			f.setVisible(false);
 		}
+		if(arg0.getKeyCode()==32) {
+            ScoreFrame gui = new ScoreFrame();
+			f.setVisible(false);    
+        }
 	}
-
-
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
-
-
 	@Override
 	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
-		
 	}
 }
-

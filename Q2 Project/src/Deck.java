@@ -29,18 +29,14 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class Deck extends JPanel {
-
 	public GuessWhoFrame Container;
 	public PictureCard UserSelectedCard;
 	public PictureCard ComputerSelectedCard;
-
 	private boolean isJewelrySelected;
 	private boolean isGlassesSelected;
 	private boolean isHairSelected;
 	private boolean isHatSelected;
-	
-	private List<PictureCard> cards = new ArrayList();
-	
+	private List<PictureCard> cards = new ArrayList();	
 	public int numXout = 0;
 	
 	public Deck(GuessWhoFrame container) {
@@ -49,10 +45,8 @@ public class Deck extends JPanel {
 		this.setLocation(0, 0);
 		this.setPreferredSize(new Dimension(800, 600));
 		int x = 0, y = 0;
-
-		int randomCardNumber = (int)(Math.random()*17);
-		Card cc = GameBoard.cards[randomCardNumber];
-		
+		int randomCardNumber = (int)(Math.random()*15);
+		Card cc = GameBoard.cards[randomCardNumber];		
 		PictureCard pc1 = new PictureCard(cc.getName(), 
 				cc.getName(), 
 				cc.getJewelry(), 
@@ -64,13 +58,8 @@ public class Deck extends JPanel {
 		if (ComputerSelectedCard == null) {
 			ComputerSelectedCard = pc1;
 			Container.SetComputerSelectedCard(ComputerSelectedCard);
-		}
-		
-		
-		for (int i = 0; i < GameBoard.BOARD_SIZE; i++) {
-
-			
-			
+		}				
+		for (int i = 0; i < GameBoard.BOARD_SIZE; i++) {						
 			int result = i%4;
 			switch(result) {
 				case 0 :
@@ -87,11 +76,9 @@ public class Deck extends JPanel {
 					break;
 			default :
 				y = (i / 4 * 140) + 20;
-			}
+			}			
 			
-			
-			Card cardData = GameBoard.cards[i];
-			
+			Card cardData = GameBoard.cards[i];		
 			PictureCard pc = new PictureCard(cardData.getName(), 
 					cardData.getName(), 
 					cardData.getJewelry(), 
@@ -99,12 +86,9 @@ public class Deck extends JPanel {
 					cardData.getGlasses(),
 					cardData.getHat(),
 					cardData.getIndex()
-					);
-			
-			
+					);		
 			pc.setBounds(x, y, 120, 120);
 			cards.add(pc);
-
 			pc.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 						String name = ((Card)e.getSource()).getName();
@@ -114,33 +98,22 @@ public class Deck extends JPanel {
 						           UserSelectedCard = pc;
 						           Container.SetUserSelectedCard(UserSelectedCard);
 						           pc.changebg(Color.WHITE);
-						           //break;
-						        
 						    }
 						       else {
 									pc.changebg(new Color(240, 135, 162));
-
 						       }
 					}
 				}
-			});
-			
-			
-			this.add(pc);
-			
-		}
-		
-	}
- 
-	
+			});						
+			this.add(pc);			
+		}		
+	}	
 	public void SetJewelrySelected() {
 		//isJewelrySelected = true;
 		if (ComputerSelectedCard.getJewelry()) {
 			for (PictureCard pc : cards) {
 				if(!pc.getJewelry()) {
 					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
 				}
 			}
 		}
@@ -148,8 +121,6 @@ public class Deck extends JPanel {
 			for (PictureCard pc : cards) {
 				if(pc.getJewelry()) {
 					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
 				}
 			}
 		}
@@ -159,74 +130,51 @@ public class Deck extends JPanel {
 		if (ComputerSelectedCard.getFacialHair()) {
 			for (PictureCard pc : cards) {
 				if(!pc.getFacialHair()) {
-					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
+					pc.SetXImage();					
 				}
 			}
 		}
 		else {
 			for (PictureCard pc : cards) {
 				if(pc.getFacialHair()) {
-					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
+					pc.SetXImage();							
 				}
 			}
 		}
-	}
-	
-	
+	}	
 	public void SetGlassesSelected() {
 		//isGlassesSelected = true;
 		if (ComputerSelectedCard.getGlasses()) {
 			for (PictureCard pc : cards) {
 				if(!pc.getGlasses()) {
-					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
+					pc.SetXImage();			
 				}
 			}
 		}
 		else {
 			for (PictureCard pc : cards) {
 				if(pc.getGlasses()) {
-					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
+					pc.SetXImage();				
 				}
 			}
 		}
-
 	}
-
 	public void SetHatSelected() {
 		//isHatSelected = true;
 		if (ComputerSelectedCard.getHat()) {
 			for (PictureCard pc : cards) {
 				if(!pc.getHat()) {
-					pc.SetXImage();
-					numXout += 1;
-					getnumXout();
+					pc.SetXImage();					
 				}
 			}
 		}	
-
-	
 	else {
 		for (PictureCard pc : cards) {
 			if(pc.getHat()) {
-				pc.SetXImage();
-				numXout += 1;
-				getnumXout();
+				pc.SetXImage();	
 			}
 		}
 	}
 	}
-	public int getnumXout() {
-		System.out.println(numXout);
-		return numXout;
-	}
 	
-
 }

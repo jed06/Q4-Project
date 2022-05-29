@@ -1,18 +1,9 @@
-
 import java.util.List;
 import java.util.ArrayList;
 public class GameBoard {
-	
-	//private Card[] cards;
-	 private Deck deck;
-
-	 
-	 
-	 
+	private Deck deck;	 	 	 
 	public static final int BOARD_SIZE = 16;
 	public static final Card [] cards = {
-		//	public Card(String name, String imgURL, boolean hasJewelery, boolean hasHair, boolean hasGlasses, boolean hasHat, int index
-
 		new Card("Suzie Sheep", "Suzie Sheep", true, false, true, true,0),
 		new Card("Candy Cat", "Candy Cat", false, false, true, true,1),	
 		new Card("Zoe Zebra", "Zoe Zebra", true, false, false, true,2),	
@@ -28,16 +19,14 @@ public class GameBoard {
 		new Card("Peppa Pig", "Peppa Pig", true, true, true, true,12),
 		new Card("Mummy Pig", "Mummy Pig", false, false, false, false,13),
 		new Card("Granny Pig", "Granny Pig", false, true, false, true,14),
-		new Card("Grandpa Pig", "Grandpa Pig", true, true, false, true,15)	
-		
+		new Card("Grandpa Pig", "Grandpa Pig", true, true, false, true,15)			
 	};
 	public static final String[] NAMES = {"Suzie Sheep", "Candy Cat", "Zoe Zebra",
 			"Rebecca Rabbit", "Emily Elephant",
 			"George Pig","Danny Dog",
 			"Molly Mole", "Freddy Fox" ,
 			"Mandy Mouse", "Gerald Giraffe","Pedro Pony",
-			"Peppa Pig", "Mummy Pig", "Granny Pig", "Grandpa Pig"};
-	
+			"Peppa Pig", "Mummy Pig", "Granny Pig", "Grandpa Pig"};	
 	public static final boolean[] JEW =
 			{true,false,true,false,true,false,false,true,true,false,true, false, true, false, true, true};
 	public static final boolean[] HAIR =
@@ -46,25 +35,15 @@ public class GameBoard {
 			{true,true,false,false,false,true,false,true,true, true,false, true, false, true, false, true};
 	public static final boolean[] HAT =
 			{true,true,true,true,false,false,false,false, false, false, false, true, true, true, false, true};
-	
-	/*
-	 * public GameBoard() { super(BOARD_SIZE,NAMES,JEW,HAIR,GLASS,HAT); }
-	 */
-
 	public static final HintQuestion[] HINT_QUESTIONS = {
-			new HintQuestion("Is water wet?", false, false, false, false, 0),
-			new HintQuestion("Am I wearing jewelery?", true, false, false, false, 1),
+			new HintQuestion("Are you wearing jewelery?", true, false, false, false, 0),
+			new HintQuestion("Is water wet?", false, false, false, false, 1),
 			new HintQuestion("Is the sky blue?", false, false, false, false, 2),
-			new HintQuestion("Do I have facial hair?", false, true, false, false, 3),
+			new HintQuestion("Do you have facial hair?", false, true, false, false, 3),
 			new HintQuestion("Which came first: chicken or egg?", false, false, false, false, 4),
-			new HintQuestion("Am I wearing Glasses?", false, false, true,  false, 5),
+			new HintQuestion("Are you wearing Glasses?", false, false, true,  false, 5),
 			new HintQuestion("Is the sky blue?", false, false, false, false, 6),
-			new HintQuestion("Am I wearing a hat/headband?", false, false, false, true, 7),
-			new HintQuestion("Do alternate universes exist?", false, false, false, false, 8),
-
-			
-	};
-	
-	
-	
+			new HintQuestion("Are you wearing a hat/headband?", false, false, false, true, 7),
+			new HintQuestion("Do alternate universes exist?", false, false, false, false, 8),		
+	};	
 }

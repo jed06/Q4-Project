@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.print.attribute.standard.DateTimeAtCompleted;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -14,9 +13,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 import javax.swing.WindowConstants;
-
-
-
 public class GuessWhoFrame extends JFrame implements ActionListener {
 	RightPanel rightPanel;
 	BottomPanel bottomPanel;
@@ -24,65 +20,48 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	HintQuestion CCHintQuestion = GameBoard.HINT_QUESTIONS[0];
 	JLabel QuestionLabel;
 	JButton GuessButton;
-	JFrame GuessWhoFrame = new JFrame(); 
+	JFrame GuessWhoFrame = new JFrame();
+	int time = 0;
 	Timer t = new Timer(1000, this);		
 	private PictureCard UserSelectedCard = new PictureCard();
-	int numofAttempts = 0;
-	
+	int numofAttempts = 0;	
 	public void setguessAttempted() {
 		numofAttempts+= 1;
 		if(numofAttempts == 3) {
 		}
 		rightPanel.setAttemps(numofAttempts);
-	}
-	
+	}	
 	public int getguessAttempted() {
 		return numofAttempts;
-	}
-	
+	}	
 	public GuessWhoFrame() {
 		Color bgColor = new Color(202, 166, 221);
 		GuessWhoFrame.setUndecorated(true);
-		GuessWhoFrame.setBackground(bgColor);
-		
+		GuessWhoFrame.setBackground(bgColor);		
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		rightPanel = new RightPanel();
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);		
+		rightPanel = new RightPanel(this);
  		rightPanel.setBackground(bgColor);
-		add(rightPanel);
-		
+		add(rightPanel);		
 		bottomPanel = new BottomPanel(this);
 		add(bottomPanel);
 		bottomPanel.setBackground(bgColor);
 		JPanel p = new JPanel();
 		p.setBackground(bgColor);
-		p.setBounds(0, 0, 750, 600);
-		
-		deck = new Deck(this);
-	
-		deck.setBackground(bgColor);
-	
+		p.setBounds(0, 0, 750, 600);		
+		deck = new Deck(this);	
+		deck.setBackground(bgColor);	
 		p.add(deck);
-
 		add(p);
-
 		JPanel p3 = new JPanel();
 		p3.setBounds(750, 600, 250, 100);
-		p3.setBackground(bgColor);
-		
+		p3.setBackground(bgColor);		
 		pack();
-
 		setSize(new Dimension(1000, 750));
 		setVisible(true);
-		//ShowGuessDialog();
-		updateScreen();
-		
-		
-		RightPanel.setTimer();
-		t.start();
+		updateScreen();		
+		t.start();		
 	}
-
 	public void SetJewelrySelected() {
 		deck.SetJewelrySelected();
 	}
@@ -95,8 +74,6 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	public void SetHatSelected() {
 		deck.SetHatSelected();
 	}
-	
-	
 	public void SetComputerSelectedCard(PictureCard card)
 	{
 		rightPanel.SetComputerSelectedPicture(card);
@@ -111,133 +88,31 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 		System.out.println(card.getName());
 
 	}
-	
 	public PictureCard GetUserSelectedCard() {
-		return UserSelectedCard;
-		
-
+		return UserSelectedCard;		
 	}
-
-	/*
-	 * private void ShowGuessDialog() { JDialog d = new JDialog(this, "");
-	 * d.setResizable(false); d.setModal(true);
-	 * d.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-	 * d.setUndecorated(true); JPanel p = new JPanel();
-	 * 
-	 * p.setBackground(new Color(243, 118, 150));
-	 * 
-	 * p.setLayout(new BorderLayout()); // create a button
-	 * 
-	 * JLabel l = new
-	 * JLabel(" Please choose a character for the computer to guess");
-	 * 
-	 * 
-	 * JButton b = new JButton("OK"); b.setCursor(new Cursor(Cursor.HAND_CURSOR));
-	 * b.addActionListener(new ActionListener() { public void
-	 * actionPerformed(ActionEvent e) { d.setVisible(false); t.start();
-	 * System.out.println("Timer on"); } } );
-	 * 
-	 * p.add(l, BorderLayout.CENTER);
-	 * 
-	 * p.add(b, BorderLayout.SOUTH);
-	 * 
-	 * // add panel to dialog
-	 * 
-	 * d.add(p);
-	 * 
-	 * // set size of dialog d.setSize(310, 150); d.setLocation(300,300); // set
-	 * visibility of dialog d.setVisible(true);
-	 * 
-	 * }
-	 */
-
-
-/*	public void showComputerQuestionDialog() {
-		
-		JDialog d = new JDialog(this);
-		d.setResizable(false);
-		d.setModal(true);
-		d.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
-		d.setUndecorated(true);
-		JPanel p = new JPanel();
-			
-		p.setBackground(Color.PINK);
-
-		p.setLayout(new BorderLayout());
-			
-		String questionText = getNextQuestion();
-		JLabel l = new JLabel(questionText);
-
-		JButton yesb = new JButton("YES");
-		JButton nob = new JButton("NO");
-
-			yesb.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					d.setVisible(false);
-					}
-				}
-			);
-			
-			nob.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-					d.setVisible(false);
-					}
-				}
-			);
-			
-			p.add(l, BorderLayout.CENTER);
-			Panel buttonpanel = new Panel();
-			buttonpanel.add(yesb);
-			buttonpanel.add(nob);
-			p.add(buttonpanel, BorderLayout.SOUTH);
-			
-			// add panel to dialog
-			
-			d.add(p);
-			
-			// set size of dialog
-			d.setSize(300, 150);
-			d.setLocation(300,300);
-			// set visibility of dialog
-			d.setVisible(true);
-
-		
-	}*/
-	
-	/*private String getNextQuestion() {
-		int nextIndex = CCHintQuestion.Index;
-		
-		for(int i= 0; i < 4; i++) {
-			nextIndex += 1;
-			nextIndex = nextIndex % GameBoard.COMPUTER_HINT_QUESTIONS.length;
-			
-			if(GameBoard.COMPUTER_HINT_QUESTIONS[nextIndex].IsAnswered == false) {
-				CCHintQuestion = GameBoard.COMPUTER_HINT_QUESTIONS[nextIndex];
-				CCHintQuestion.IsAnswered = true;
-				break;
-			}
+	public void updateScreen() {		 
+	}	
+	public void gameOver() {
+		t.stop();
+		ScoresIO.addScore(time);
+		for (HintQuestion i : GameBoard.HINT_QUESTIONS) {
+			i.IsAnswered = false;
 		}
-		
-		return CCHintQuestion.Text;
-	}*/
-
-	public void updateScreen() {
-		 
 	}
-	
-	static int time = 0;
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		time++;
-		System.out.println(time);
-		if(time>10) {
-			t.stop();
-			LosingFrame gui = new LosingFrame();
-			this.setVisible(false);
-		}
+		//System.out.println(time);
+		//if (time%100 == 0) {
+			setTime();
+		//}
 	}
-	public static int getTime() {
+	public int getTime() {
 		return time;
 	}
+	public void setTime() {
+		rightPanel.setTimer(time);
+	}	
 }

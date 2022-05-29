@@ -9,7 +9,6 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineEvent;
 import javax.sound.sampled.LineListener;
 import javax.sound.sampled.UnsupportedAudioFileException;
-
 public class Music  implements Runnable  {
 	Thread t;
 	File audioFile ;
@@ -24,7 +23,6 @@ public class Music  implements Runnable  {
 			AudioFormat format = audioStream.getFormat();
 	        DataLine.Info info = new DataLine.Info(Clip.class, format);
 	        audioClip = (Clip) AudioSystem.getLine(info);
-	        
 	        if(loops) {
 	        	audioClip.loop(Clip.LOOP_CONTINUOUSLY);
 	        }	        
@@ -38,7 +36,6 @@ public class Music  implements Runnable  {
 			e.printStackTrace();
 		}
 	}
-	
 	public void play() {
 		start3();
 	}
@@ -68,11 +65,8 @@ public class Music  implements Runnable  {
 			e.printStackTrace();
 		}
 	}
-
 	@Override
 	public void run() {
 		 audioClip.start();
 	}
-	
-
 }
