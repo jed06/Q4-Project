@@ -61,13 +61,14 @@ public class InstructionFrame extends JPanel implements ActionListener, KeyListe
         g.drawString(" Peppa said she wanted to help, so here is some advice from her.",10, 120);
         g.drawString("The goal of the game is to guess what card the Computer asks.", 10, 150);
         g.drawString("Use the question box to eliminate characters in the deck.", 10, 180);
-        g.drawString("You can only ask 4 questions so choose them wisely. ", 10, 210);
+        g.drawString("You can only ask 3 questions so choose them wisely. ", 10, 210);
         g.drawString("Peppa will allow you to start making 'Guesses' when you've asked a few questions ", 10, 240);
         g.drawString("Be sure to know which card you think it is, before you make a guess", 10, 270);
         g.drawString("A Wrong Guess is an automatic win for the computer  ", 10, 300);
         g.drawString("May the Peppa Force be with you!", 10, 330);
+        g.drawString("Turn up the volume if you want to!", 10, 360);
         g.setFont(new Font ("Monospaced", Font.PLAIN, 40));
-        g.drawString("\"",390, 340);
+        g.drawString("\"",410, 370);
         g.setFont(new Font ("Monospaced", Font.PLAIN, 30));
         g.drawString("press enter to play!", 600, 700);
     }

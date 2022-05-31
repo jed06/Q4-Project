@@ -14,7 +14,7 @@ public class ScoresIO {
 	        String data = myReader.nextLine();
 	        if (data != null && data != "" && data.length() > 0) {
 	        sarray.add(Integer.parseInt(data));
-	        System.out.println(data);
+	        //System.out.println(data);
 	        	}
 	        }
 	      myReader.close();

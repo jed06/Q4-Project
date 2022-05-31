@@ -27,6 +27,7 @@ public class RightPanel extends JPanel {
 		
 		labelattemps.setFont(f);
 		labelattemps.setBounds(20, 250, 200, 100);
+		labelattemps.setForeground(Color.BLACK);
 		add(labelattemps);
 		
 		ArrayList<Integer> b = ScoresIO.readScores();
@@ -35,15 +36,15 @@ public class RightPanel extends JPanel {
         	Collections.sort(b);
             fastTime = b.get(0);
         }		
-        bestScore.setText("Time to beat:" + fastTime + "seconds");
+        bestScore.setText("Fastest Time:" + fastTime + " s");
         bestScore.setFont(f);
-        bestScore.setForeground(new Color(102,255,179));
+        bestScore.setForeground(Color.BLACK);
         bestScore.setBounds(20, 330, 200, 100);
 		add(bestScore);
 		
 		setTimer(0);
 		timer.setFont(f);
-		timer.setForeground(Color.CYAN);
+		timer.setForeground(Color.BLACK);
 		timer.setBounds(20, 300, 200, 100);
 		add(timer);
 		setTimer(0);

@@ -77,7 +77,7 @@ public class GuessWhoFrame extends JFrame implements ActionListener {
 	public void SetComputerSelectedCard(PictureCard card)
 	{
 		rightPanel.SetComputerSelectedPicture(card);
-		System.out.println("Mystery Character: "+ card.getName());
+		//System.out.println("Mystery Character: "+ card.getName());
 		//Add method on Right Panel to Set Computer Selected card
 	}
 	public PictureCard getComputerSelectedCard() {
