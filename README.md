@@ -27,7 +27,11 @@ The Game Board class also intstilaizes the content of the dialogue box which con
 //inset loom of dialogue box
 
 
-### Splash/Win/Lose
+### Splash Frame 
+The splash frame is the home screen of our game. We used our quarter 2 skills to paint picture object of peppa characters, the background image, and  draw a string to tell the user to press the enter key. The Splash frame implement the Action and Key Listerner features. These implementations allow the code to detect when the user pressed the enter key. If if detect the keycode 10 it will close the splash frame and open open up the Guess Peppa Frame as well as play the peppa soundtrack. 
+![homscreen](https://user-images.githubusercontent.com/90801601/171329066-728545c3-4807-4647-9364-024d9b9d329f.gif)
+
+
 ### Picture/CardPicture
 //reading the file paths
 ### Music
