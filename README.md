@@ -45,15 +45,16 @@ The splash frame is the home screen of our game. We used our quarter 2 skills to
 //creating a timer and presenting it visibly on the screen
 ### working with Jframe
 <hr>
-### implementing ideas
+
+##  Trello
 <hr>
-## Trello
 
 ![trello](https://user-images.githubusercontent.com/90801601/171287576-30003a0d-451e-4224-8669-78f14465fc46.PNG)
 
 ## Conclusion
 ### video
 <hr>
-### Presentation
+
+### presentation
 <hr>
 
