@@ -1,11 +1,11 @@
 # Guess the Peppa : APCSA Quarter 4 Final Project
 #### By: Jessica David and Hannah Samueul
 ## Introduction
-Guess the Peppa is a single player game that involves the user guessing cards from a deck of Peppa themed cards. The goal of the game is to guess what card the computer selected from the deck. To help with making the guess, there are a set of questions you can ask to eliminated cards from the deck, after a certain amount of attempt, you are prompted to make a final guess. 
+Guess the Peppa is a single player game that involves the user guessing cards from a deck of Peppa themed cards. The goal of the game is to guess what card the computer selected from the deck. To help with making the guess, there are a set of questions you can ask to eliminated cards from the deck, after a certain amount of attempts, you are prompted to make a final guess. 
 ## Classes/Objects
 ### Card
 <hr>
-The Card class allows you to create a single card object. This class allowed us to create the appearance of the card and the attributes of it such if the card's characters wore jewlery or has facial hair or both. These feature are known as a instance variable which we will use to check with against the Computer selected card to see if it was a match.
+The Card class allows you to create a single card object. This class allowed us to create the appearance of the card and the attributes of it such if the card's characters wore jewlery or has facial hair or both. These feature are known as a instance variable which we will use to check with against the Computer selected card to see if they are a match.
 
 <br>
 
