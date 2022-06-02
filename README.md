@@ -13,7 +13,7 @@ The Card class allows you to create a single card object. This class allowed us 
 
 ### Deck
 <hr>
-The Deck Class assembles single card object in a game board array. Everytime the game is run, the code utilizes ***switch statements*** which allows us to paint a deck in a 4 X four pattern based on whether row is divisble by 4. Switch case statement are the replacement to a tree of if statment. When there are multiple check are being done and they all correlate to each other, its better to use a switch statement. In addition to this, the deck class has methods that set the red X image over a card in the deck if the instance variable of that card int he deck does not match with the instance variables of the card the computer chose. 
+The Deck Class assembles single card object in a game board array. Everytime the game is run, the code utilizes *switch statements* which allows us to paint a deck in a 4 X four pattern based on whether row is divisble by 4. Switch case statement are the replacement to a tree of if statment. When there are multiple check are being done and they all correlate to each other, its better to use a switch statement. In addition to this, the deck class has methods that set the red X image over a card in the deck if the instance variable of that card int he deck does not match with the instance variables of the card the computer chose. 
 
 <br>
 
@@ -42,24 +42,25 @@ The splash frame is the home screen of our game. We used our quarter 2 skills to
 
 
 ### Picture/CardPicture
-//reading the file paths
+The Picture and CardPicture classes were used to set the images in this game. These classes also had methods that were used to display the cross over eliminated characters.
 ### Music
-//peppa sound track
+This class played the music of our game. When the player starts the game, the music would play and loop until the player stops running the program.
 ## Technical Challenges
 ### JFrame, JButton, JPanels, JLabel, J-EVERYTHING!
 <hr>
 //Playing around with the bounds of panels and attaching them to the main frame
-### reading a file
+For certain parts of the game, we needed to use JButtons to make it easy for the user to interact with th game. We also were able to organize our game by creating seperate JPanels with various attributes for that part of the overall frame. Using JLabels and JTextArea, we were able to put text on our game without the use of the g.drawString() method.
+### reading and writing a file
 <hr>
 //creating a timer and presenting it visibly on the screen
-### working with Jframe
+To incorporate what we learned about reading and writing files this year, we used a timer that would write the total time the player took to complete the game. When the game frame is first launched, a timer starts and runs until the person finishes the game. The total time passed is then written into our file called Scores.txt. Then the data from this file is sorted from least to greatest and then read from our Score Frame. 
 <hr>
 
 ##  Trello
 <hr>
-Throughout this project, we not only practices our coding skills but also our project management skills using Trello. Trello is a unique web application that allows us to map out the details of our project as well. You can assign label and members to specific tasks. For our project, we mapped out each class and the tasks that needed to be done for each class. Trello allowed to share images and information easily without having to commit small details. With the help of this tool, we were able to organize our thought and ideas to make a sucessful working game. Trello is a great tool to use when we make decisions or have brief meetings on the progress of our game.
+Throughout this project, we not only practiced our coding skills but also our project management skills using Trello. Trello is a unique web application that allows us to map out the details of our project as well. You can assign label and members to specific tasks. For our project, we mapped out each class and the tasks that needed to be done for each class. Trello allowed to share images and information easily without having to commit small details. With the help of this tool, we were able to organize our thought and ideas to make a sucessful working game. Trello is a great tool to use when we make decisions or have brief meetings on the progress of our game.
 <br>
-![trello](https://user-images.githubusercontent.com/90801601/171287576-30003a0d-451e-4224-8669-78f14465fc46.PNG)
+(https://user-images.githubusercontent.com/90801601/171287576-30003a0d-451e-4224-8669-78f14465fc46.PNG)
 
 ## Conclusion
 ### video
@@ -68,4 +69,5 @@ Here is a video of our presentation
 ### presentation
 <hr>
 Below is the link to our Presentation that goes in detail about our game.
+https://docs.google.com/presentation/d/1o2jRVmaubzYdknRSyNwVI8GKZdU5J9Ag2VmwBAyFFiI/edit?usp=sharing
 
