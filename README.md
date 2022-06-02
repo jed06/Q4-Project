@@ -29,8 +29,7 @@ The Game Board class keeps track and sets all the attributes of a card in code. 
 ![chart](https://user-images.githubusercontent.com/90801601/171285690-32b5563d-5110-42f8-a905-b01207b9d7cd.PNG)
 
 The Game Board class also intstilaizes the content of the dialogue box which conains all the questions a user can "ask" to the CPU to eliminated cards from the deck.
-
-//inset loom of dialogue box
+![questions](https://user-images.githubusercontent.com/90801601/171682601-9f09863e-6bdb-42f9-876b-03fa90984b9a.PNG)
 
 
 ### Splash Frame 
@@ -48,26 +47,37 @@ This class played the music of our game. When the player starts the game, the mu
 ## Technical Challenges
 ### JFrame, JButton, JPanels, JLabel, J-EVERYTHING!
 <hr>
-//Playing around with the bounds of panels and attaching them to the main frame
 For certain parts of the game, we needed to use JButtons to make it easy for the user to interact with th game. We also were able to organize our game by creating seperate JPanels with various attributes for that part of the overall frame. Using JLabels and JTextArea, we were able to put text on our game without the use of the g.drawString() method.
-### reading and writing a file
+
+
+### Reading and Writing a File
 <hr>
-//creating a timer and presenting it visibly on the screen
 To incorporate what we learned about reading and writing files this year, we used a timer that would write the total time the player took to complete the game. When the game frame is first launched, a timer starts and runs until the person finishes the game. The total time passed is then written into our file called Scores.txt. Then the data from this file is sorted from least to greatest and then read from our Score Frame. 
-<hr>
+
+![score](https://user-images.githubusercontent.com/90801601/171682543-20e5a412-870c-4583-aa5a-77e1316dcfc0.PNG)
+
 
 ##  Trello
 <hr>
 Throughout this project, we not only practiced our coding skills but also our project management skills using Trello. Trello is a unique web application that allows us to map out the details of our project as well. You can assign label and members to specific tasks. For our project, we mapped out each class and the tasks that needed to be done for each class. Trello allowed to share images and information easily without having to commit small details. With the help of this tool, we were able to organize our thought and ideas to make a sucessful working game. Trello is a great tool to use when we make decisions or have brief meetings on the progress of our game.
 <br>
-(https://user-images.githubusercontent.com/90801601/171287576-30003a0d-451e-4224-8669-78f14465fc46.PNG)
 
-## Conclusion
-### video
+![trello](https://user-images.githubusercontent.com/90801601/171681296-d1ce76df-58c0-4f4a-9101-1f05a8b71599.PNG)
+
+## Final Thoughts
+
+Overall, this experience was IMMACULATE. We really enjoyed codig together and discovering new skills while coding our game. We were able to incorporate loops, if statement, arrays, switch statements, reading a file, and more. While we were making this game, we were also studying for our AP Exams. Making this game allowed us to apply the concepts we were learning making us more confident in our knowledge of these topics.
+
+### Video
 <hr>
-Here is a video of our presentation
-### presentation
+Here is a video demonstration.
+
+https://user-images.githubusercontent.com/90801601/171681995-e0e21817-953d-4e9e-b7aa-74be99a8c6ee.mp4
+
+
+
+### Presentation
 <hr>
 Below is the link to our Presentation that goes in detail about our game.
-https://docs.google.com/presentation/d/1o2jRVmaubzYdknRSyNwVI8GKZdU5J9Ag2VmwBAyFFiI/edit?usp=sharing
 
+[2022 Q4 Final Project Presentation 🐷 (2).pdf](https://github.com/jed06/Q4-Project/files/8825908/2022.Q4.Final.Project.Presentation.2.pdf)
