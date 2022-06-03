@@ -1,5 +1,5 @@
 # Guess the Peppa : APCSA Quarter 4 Final Project
-#### By: Jessica David and Hannah Samueul
+#### By: Jessica David and Hannah Samuel
 ## Introduction
 Guess the Peppa is a single player game that involves the user guessing cards from a deck of Peppa themed cards. The goal of the game is to guess what card the computer selected from the deck. To help with making the guess, there are a set of questions you can ask to eliminated cards from the deck, after a certain amount of attempts, you are prompted to make a final guess. 
 ## Classes/Objects
@@ -80,4 +80,4 @@ https://user-images.githubusercontent.com/90801601/171681995-e0e21817-953d-4e9e-
 <hr>
 Below is the link to our Presentation that goes in detail about our game.
 
-[2022 Q4 Final Project Presentation 🐷 (2).pdf](https://github.com/jed06/Q4-Project/files/8825908/2022.Q4.Final.Project.Presentation.2.pdf)
+https://docs.google.com/presentation/d/1o2jRVmaubzYdknRSyNwVI8GKZdU5J9Ag2VmwBAyFFiI/edit?usp=sharing
